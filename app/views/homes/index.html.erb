@@ -1,4 +1,14 @@
-<p>
-  Modify me in `app/views/homes/index.html.erb` or change the root directive in
-  `config/routes.rb`
-</p>
+ <div id="map">This is where the map goes</div>
+
+<script>
+var map;
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: 13.046155, lng: 104.828707},
+    zoom: 5
+  });
+}
+
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBT-cR8W-TCwZLqfIIDgASK9Tl-wAMHay8&callback=initMap"></script>
