@@ -1,0 +1,100 @@
+<% cities_array = City.all.map { |city| [city.name, city.id] } %>
+
+<%= form_for @review do |f| %>
+  <div class="row">
+    <div class="small-1 columns">
+      <%= f.label :city %>
+    </div>
+    <div class="small-4 columns end">
+      <%= f.select :city_id, options_for_select(cities_array) %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-1 columns">
+      <%= f.label :description %>
+    </div>
+    <div class="small-6 columns end">
+      <%= f.text_area :description, rows: 7, :maxlength => 500 %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-1 columns">
+      <%= f.label :value %>
+    </div>
+    <div class="small-1 columns">
+      <%= f.text_field :value %>
+    </div>
+    <div class="small-10 columns end">
+      Overall value for money. A good way to gauge this is: how much does a beer cost? How much for a meal? Is it more than I thought it should be? Less? A city with the best value is 10, worst is 0.
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-1 columns">
+      <%= f.label :beauty %>
+    </div>
+    <div class="small-1 columns ">
+      <%= f.text_field :beauty %>
+    </div>
+    <div class="small-10 columns end">
+      The beauty of a city. Could be natural or architecture etc. Up to you.
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-1 columns">
+      <%= f.label :activities %>
+    </div>
+    <div class="small-1 columns ">
+      <%= f.text_field :activities %>
+    </div>
+    <div class="small-10 columns end">
+      Could be site seeing, adventure sports, museums. Anything you can *do* in a place. This one's important.
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-1 columns">
+      <%= f.label :friendliness %>
+    </div>
+    <div class="small-1 columns">
+      <%= f.text_field :friendliness %>
+    </div>
+    <div class="small-10 columns end">
+      How friendly you percieved the locals to be.
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-1 columns">
+      <%= f.label :food %>
+    </div>
+    <div class="small-1 columns">
+      <%= f.text_field :food %>
+    </div>
+    <div class="small-10 columns end">
+      Pretty self-explanatory.
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-1 columns">
+      <%= f.label :touristy %>
+    </div>
+    <div class="small-1 columns end">
+      <%= f.text_field :touristy %>
+    </div>
+    <div class="small-10 columns end">
+      Did it feel like a tourist trap? A remote village in Laos would be 0, Cancun, Mexico would be 10.
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-1 columns button-container"></div>
+    <div class="small-2 columns end">
+      <%= f.submit class: :button %>
+    </div>
+  </div>
+<% end %>
