@@ -1,5 +1,10 @@
 class ReviewsController < ApplicationController
   def index
+    @cities = City.all
+
+    respond_to do |format|
+      format.json { render json: @cities}
+    end
   end
 
   def new
