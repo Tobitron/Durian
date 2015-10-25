@@ -19,9 +19,31 @@
 #map {
   height: 100%;
   width: 100%;
-  border: 2px solid red;
+  z-index: 100;
 }
 
 .description {
   height: 300px;
+}
+
+#reviewOverlay {
+  display: none;
+  margin: 0 auto;
+}
+
+#popupClose {
+  float: right;
+  padding: 10px;
+  cursor: pointer;
+}
+
+#reviewPopup{
+  background-color: #eff0ea;
+  display: none;
+  position: absolute;
+  margin-top: 10%;
+  z-index: 200;
+  width: 40em;
+  border: 2px solid black;
+  font-size: 12px;
 }
