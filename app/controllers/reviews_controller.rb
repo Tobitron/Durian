@@ -1,9 +1,9 @@
 class ReviewsController < ApplicationController
   def index
-    @cities = City.all
-
+    # This should be in the city controller
+    @reviews = Review.all
     respond_to do |format|
-      format.json { render json: @cities}
+      format.json { render json: @reviews}
     end
   end
 

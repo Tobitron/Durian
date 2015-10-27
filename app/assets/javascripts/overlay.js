@@ -14,7 +14,3 @@ openReview.onclick = function() {
  overlay.style.display = 'block';
  review.style.display = 'block';
 }
-
-$.get("reviews.json", function(data) {
-
-});
