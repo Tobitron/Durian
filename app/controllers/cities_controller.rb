@@ -3,5 +3,4 @@ class CitiesController < ApplicationController
     @cities = City.all
     render json: @cities
   end
-
 end

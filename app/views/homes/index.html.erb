@@ -22,7 +22,7 @@
 
 <script type="text/javascript">
  var cityData = 0
-  $.get("reviews.json", function(data) {
+  $.get("/cities.json", function(data) {
     cityData = data
   });
 
@@ -33,11 +33,11 @@
     });
 
     var content = '<div id="iw-container">' +
-                  '<div class="iw-title"><%= bangkok.name %></div>' +
+                  '<div class="iw-title"> hurrrrooooo!!! </div>' +
                   '<div class="iw-content">' +
                     '<div class="iw-subTitle">Review</div>' +
                     '<img src="http://maps.marnoto.com/en/5wayscustomizeinfowindow/images/vistalegre.jpg" alt="Porcelain Factory of Vista Alegre" height="115" width="83">' +
-                    '<%= bangkok.reviews[0].description %>'  +
+                    'I am the descwiptioooonn hahahah'  +
                   '</div>' +
                   '<div class="iw-bottom-gradient"></div>' +
                 '</div>';
@@ -87,12 +87,13 @@
         },
       });
 
+      debugger;
       var loopContent = '<div id="iw-container">' +
-                    '<div class="iw-title"><%= bangkok.name %></div>' +
+                    '<div class="iw-title"> hey ima title </div>' +
                     '<div class="iw-content">' +
                       '<div class="iw-subTitle">Review</div>' +
                       '<img src="http://maps.marnoto.com/en/5wayscustomizeinfowindow/images/vistalegre.jpg" alt="Porcelain Factory of Vista Alegre" height="115" width="83">' +
-                      '<%= bangkok.reviews[0].description %>'  +
+                      'description place holder here'  +
                     '</div>' +
                     '<div class="iw-bottom-gradient"></div>' +
                   '</div>';

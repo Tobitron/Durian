@@ -1,6 +1,5 @@
 class ReviewsController < ApplicationController
   def index
-    # This should be in the city controller
     @reviews = Review.all
     respond_to do |format|
       format.json { render json: @reviews}
@@ -13,6 +12,8 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(tour_params)
+    @review.review_average = @review.calc_review_average
+    
     if @review.save
       flash[:success] = "Review created! Write another one?"
       redirect_to new_review_path
