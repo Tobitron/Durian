@@ -27,7 +27,9 @@ function initMap() {
                   '<div class="iw-title">' + city.name + " " + city.city_review_average + '</div>' +
                   '<div class="iw-content">' +
                     '<div class="iw-subTitle">Review</div>' +
-                    'Description place holder'  +
+                      city["city_reviews"].forEach(function(review) {
+                        review.description
+                      }); +
                   '</div>' +
                 '</div>';
 
