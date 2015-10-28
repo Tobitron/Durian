@@ -24,7 +24,7 @@ function initMap() {
 
     var loopContent =
                 '<div id="iw-container">' +
-                  '<div class="iw-title">' + city.name + '</div>' +
+                  '<div class="iw-title">' + city.name + " " + city.city_review_average + '</div>' +
                   '<div class="iw-content">' +
                     '<div class="iw-subTitle">Review</div>' +
                     'Description place holder'  +
