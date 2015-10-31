@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'homes#index'
+  root 'reviews#index'
   resources :cities, only: [:index]
   resources :reviews
   devise_for :users

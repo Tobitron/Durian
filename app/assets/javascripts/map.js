@@ -1,10 +1,7 @@
-var cityData = 0
 $.get("/cities.json", function(data) {
-  cityData = data
-});
+  cityData = data;
 
-function initMap() {
-  var map = new google.maps.Map(document.getElementById('map'), {
+  map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 10.209, lng: 108},
     zoom: 5,
   });
@@ -22,30 +19,22 @@ function initMap() {
       },
     });
 
-    var loopContent =
-                '<div id="iw-container">' +
-                  '<div class="iw-title">' + city.name + " " + city.city_review_average + '</div>' +
-                  '<div class="iw-content">' +
-                    '<div class="iw-subTitle">Review</div>' +
-                      city["city_reviews"].forEach(function(review) {
-                        review.description
-                      }); +
-                  '</div>' +
-                '</div>';
+    // Grab the marker's lat/long when user clicks, AJAX that shit to the controller
+    google.maps.event.addListener(marker,'click', function(event) {
 
+      var latitude = event.latLng.lat();
+      var longitude = event.latLng.lng();
 
-    var infowindow = new google.maps.InfoWindow({
-      content: loopContent,
-      maxWidth: 450
+      $.ajax({
+         method: 'GET',
+         url: '/reviews',
+         data: { latitude: latitude, longitude: longitude },
+         dataType: 'json'
+       });
+
+      overlay.style.display = 'block';
+      review.style.display = 'block';
+
     });
-
-      google.maps.event.addListener(marker, 'click', function() {
-        infowindow.open(map, marker);
-      });
-
-      // Event that closes the Info Window with a click on the map
-      google.maps.event.addListener(map, 'click', function() {
-        infowindow.close();
-      });
   });
-};
+});

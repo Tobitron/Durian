@@ -6,108 +6,13 @@
       <div class="popupControls">
           <span id="popupClose">X</span>
       </div>
-      <div class="reviewContent" id="Bangkok">
-        Whatup i'm review content
+      <div class="reviewContent" id="#">
+        <% binding.pry %>
+        <%= @reviews[0].description %>
       </div>
     </div>
   </div>
 </div>
 
 <div id="map"></div>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBT-cR8W-TCwZLqfIIDgASK9Tl-wAMHay8&callback=initMap"></script>
-
-<script type="text/javascript">
-  // var cityData = 0
-  // $.get("/cities.json", function(data) {
-  //   cityData = data
-  // });
-  //
-  // function initMap() {
-  //   var map = new google.maps.Map(document.getElementById('map'), {
-  //     center: {lat: 10.209, lng: 108},
-  //     zoom: 5,
-  //   });
-  //
-  //   cityData["cities"].forEach(function(city) {
-  //     var marker = new google.maps.Marker({
-  //       position: new google.maps.LatLng(city.latitude, city.longitude),
-  //       map: map,
-  //       icon: {
-  //           path: google.maps.SymbolPath.CIRCLE,
-  //           scale: 14,
-  //           fillColor: "rgb(144,0,0)",
-  //           fillOpacity: 1,
-  //           strokeWeight: 0.6
-  //       },
-  //     });
-  //
-  //     var loopContent = '<div id="iw-container">' +
-  //                   '<div class="iw-title">' + city.name + '</div>' +
-  //                   '<div class="iw-content">' +
-  //                     '<div class="iw-subTitle">Review</div>' +
-  //                     city["city_reviews"][0].description  +
-  //                   '</div>' +
-  //                   '<div class="iw-bottom-gradient"></div>' +
-  //                 '</div>';
-  //
-  //
-  //     var infowindow = new google.maps.InfoWindow({
-  //       content: loopContent,
-  //       maxWidth: 350
-  //     });
-  //
-  //       google.maps.event.addListener(marker, 'click', function() {
-  //         infowindow.open(map, marker);
-  //       });
-  //
-  //       // Event that closes the Info Window with a click on the map
-  //       google.maps.event.addListener(map, 'click', function() {
-  //         infowindow.close();
-  //       });
-  //   });
-  // };
-
-
-  // var content = '<div id="iw-container">' +
-  //               '<div class="iw-title"> hurrrrooooo!!! </div>' +
-  //               '<div class="iw-content">' +
-  //                 '<div class="iw-subTitle">Review</div>' +
-  //                 '<img src="http://maps.marnoto.com/en/5wayscustomizeinfowindow/images/vistalegre.jpg" alt="Porcelain Factory of Vista Alegre" height="115" width="83">' +
-  //                 'I am the descwiptioooonn hahahah'  +
-  //               '</div>' +
-  //               '<div class="iw-bottom-gradient"></div>' +
-  //             '</div>';
-  //
-  // // A new Info Window is created and set content
-  // var infowindow = new google.maps.InfoWindow({
-  //   content: content,
-  //
-  //   // Assign a maximum value for the width of the infowindow allows
-  //   // greater control over the various content elements
-  //   maxWidth: 350
-  // });
-  //
-  // var testMarker = new google.maps.Marker({
-  //         position: new google.maps.LatLng(11, 112),
-  //         map: map,
-  //         icon: {
-  //             path: google.maps.SymbolPath.CIRCLE,
-  //             scale: 14,
-  //             fillColor: "#E26008",
-  //             fillOpacity: 1,
-  //             strokeWeight: 0.6
-  //         },
-  //     });
-  //
-  // google.maps.event.addListener(testMarker, 'click', function() {
-  //   infowindow.open(map, testMarker);
-  // });
-  //
-  // // Event that closes the Info Window with a click on the map
-  // google.maps.event.addListener(map, 'click', function() {
-  //   infowindow.close();
-  // });
-
-  // Dynamically change fillColor http://stackoverflow.com/questions/4161369/html-color-codes-red-to-yellow-to-green
-
-</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBT-cR8W-TCwZLqfIIDgASK9Tl-wAMHay8"></script>

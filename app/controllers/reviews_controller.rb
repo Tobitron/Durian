@@ -1,9 +1,11 @@
 class ReviewsController < ApplicationController
   def index
     @reviews = Review.all
-    respond_to do |format|
-      format.json { render json: @reviews}
-    end
+    latitude = params[:latitude].to_f.round(2)
+    longitude = params[:longitude].to_f.round(2)
+    # This variable gets updated by an ajax request when someone clicks on a Google maps marker.
+    # But how does my view know that it's been updated??
+    @clicked_city = City.find_by(latitude: latitude, longitude: longitude)
   end
 
   def new
@@ -22,6 +24,10 @@ class ReviewsController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def show
+
   end
 
   protected
