@@ -37,4 +37,10 @@ $.get("/cities.json", function(data) {
 
     });
   });
+
+  // Event that closes the Info Window with a click on the map
+  google.maps.event.addListener(map, 'click', function() {
+    overlay.style.display = 'none';
+    review.style.display = 'none';
+  });
 });
