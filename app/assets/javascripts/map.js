@@ -13,7 +13,7 @@ $.get("/cities.json", function(data) {
       icon: {
           path: google.maps.SymbolPath.CIRCLE,
           scale: 14,
-          fillColor: "rgb(144,0,0)",
+          fillColor: "#" + city.city_color,
           fillOpacity: 1,
           strokeWeight: 0.6
       },
