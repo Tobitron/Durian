@@ -1,30 +1,8 @@
-var openReview = document.getElementById("openReviewButton")
-var closePopup = document.getElementById("popupClose");
-var overlay = document.getElementById('reviewOverlay');
-var review = document.getElementById("reviewPopup");
+var popup = document.getElementById('popup');
+var biasCard = document.getElementById('biasCard');
+var openBiasCardButton = document.getElementById('seeBiasButton');
 
-closePopup.onclick = function() {
- overlay.style.display = 'none';
- review.style.display = 'none';
+// Removing 'hidden' from biasCard's class name. Hidden is a proprietary bootstrap thing that hides the element (wow!)
+openBiasCardButton.onclick = function() {
+ biasCard.className = 'col-md-4 biasCard';
 }
-
-openReview.onclick = function() {
- overlay.style.display = 'block';
- review.style.display = 'block';
-}
-
-
-// var openReview = document.getElementById("openReviewButton")
-// var closePopup = document.getElementById("popupClose");
-// var overlay = document.getElementById('reviewOverlay');
-// var review = document.getElementById("reviewPopup");
-//
-// closePopup.onclick = function() {
-//  overlay.style.display = 'none';
-//  review.style.display = 'none';
-// }
-//
-// openReview.onclick = function() {
-//  overlay.style.display = 'block';
-//  review.style.display = 'block';
-// }

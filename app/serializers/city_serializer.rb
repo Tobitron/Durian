@@ -1,5 +1,10 @@
 class CitySerializer < ActiveModel::Serializer
-  attributes :id, :name, :latitude, :longitude, :city_review_average, :city_color, :city_reviews
+  attributes :id, :name, :latitude, :longitude, :city_color, :cleaned_city_review_average, :city_reviews
+
+  def cleaned_city_review_average
+    cleaned_average = (object.city_review_average * 10).to_i
+    cleaned_average.to_s + "%"
+  end
 
   def city_reviews
     object.reviews
