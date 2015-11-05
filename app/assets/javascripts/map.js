@@ -116,14 +116,12 @@ $.get("/cities.json", function(data) {
   });
 
   cityData["cities"].forEach(function(city) {
-    var marker = new MarkerWithLabel({
+    var marker = new google.maps.Marker({
       position: new google.maps.LatLng(city.latitude, city.longitude),
       map: map,
-      labelContent: city.cleaned_city_review_average,
-      labelAnchor: new google.maps.Point(9, 7),
       icon: {
           path: google.maps.SymbolPath.CIRCLE,
-          scale: 14,
+          scale: 18,
           fillColor: "#" + city.city_color,
           fillOpacity: 1,
           strokeWeight: 0.6
@@ -131,8 +129,9 @@ $.get("/cities.json", function(data) {
     });
 
     // Grab the marker's lat/long when user clicks, AJAX that shit to the controller
+    // My change to MarkerWithLabel seems to have broken this code
     google.maps.event.addListener(marker,'click', function(event) {
-
+      debugger;
       var latitude = event.latLng.lat();
       var longitude = event.latLng.lng();
 
