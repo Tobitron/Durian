@@ -1,1 +1,86 @@
-Choose your bias!
+<div class="biasWrapper">
+  <h1>Choose your bias</h1>
+  <h5>This info will be displayed next to your reviews and will help people get an idea of if they agree with you or not. Please search deep inside yourself for honesty :)!</h5>
+
+  <% @user = current_user %>
+  <%= form_for @user do |f| %>
+    <div class="row lime">
+      <div class="small-8 columns">
+        I love food. A lot. Finding great food is big part of my travel experiences.
+      </div>
+      <div class="small-4 columns end biasBox">
+        <%= f.select(:food, [['Strongly Disagree', 1], ['Disagree', 2],['Agree', 3], ['Strongly Agree', 4]]) %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-8 columns">
+        I'm an outdoors person. I love hiking, adventure travel.
+      </div>
+      <div class="small-4 columns end biasBox">
+        <%= f.select(:outdoors, [['Strongly Disagree', 1], ['Disagree', 2],['Agree', 3], ['Strongly Agree', 4]]) %>
+      </div>
+    </div>
+
+    <div class="row lime">
+      <div class="small-8 columns">
+        I'm a city person, I like big cities.
+      </div>
+      <div class="small-4 columns end biasBox">
+        <%= f.select(:city_person, [['Strongly Disagree', 1], ['Disagree', 2],['Agree', 3], ['Strongly Agree', 4]]) %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-8 columns">
+        I'm always looking for destinations that are off the beaten track.
+      </div>
+      <div class="small-4 columns end biasBox">
+        <%= f.select(:off_beaten_track, [['Strongly Disagree', 1], ['Disagree', 2],['Agree', 3], ['Strongly Agree', 4]]) %>
+      </div>
+    </div>
+
+    <div class="row lime">
+      <div class="small-8 columns">
+        I'm totally ok with going to touristy places.
+      </div>
+      <div class="small-4 columns end biasBox">
+        <%= f.select(:touristy, [['Strongly Disagree', 1], ['Disagree', 2],['Agree', 3], ['Strongly Agree', 4]]) %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-8 columns">
+        I get easily freaked/uncomfortable in seedy cities. Give me clean streets and bright streetlights!
+      </div>
+      <div class="small-4 columns end biasBox">
+        <%= f.select(:danger, [['Strongly Disagree', 1], ['Disagree', 2],['Agree', 3], ['Strongly Agree', 4]]) %>
+      </div>
+    </div>
+
+    <div class="row lime">
+      <div class="small-8 columns">
+        Shopping is an essential component of travel.
+      </div>
+      <div class="small-4 columns end biasBox">
+        <%= f.select(:shopping, [['Strongly Disagree', 1], ['Disagree', 2],['Agree', 3], ['Strongly Agree', 4]]) %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-8 columns">
+        I search for parties and nightlife when I travel.
+      </div>
+      <div class="small-4 columns end biasBox">
+        <%= f.select(:party, [['Strongly Disagree', 1], ['Disagree', 2],['Agree', 3], ['Strongly Agree', 4]]) %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-1 columns button-container"></div>
+      <div class="small-2 columns end">
+        <%= f.submit class: :button %>
+      </div>
+    </div>
+  <% end %>
+</div>
