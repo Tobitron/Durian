@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
   root 'reviews#index'
-  resources :cities, only: [:index]
+  devise_scope :user do
+    get "/users/bias" => "registrations#bias"
+  end
+  get 'reviews/bias' => 'registrations#bias'
+  resources :cities, only: [:index, :update, :create]
   resources :reviews
-  devise_for :users
+  devise_for :users, controllers: { registrations: "registrations" }
+  resources :users, only: [:index, :show, :edit, :update]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

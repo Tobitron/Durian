@@ -1,10 +1,16 @@
+<% binding.pry %>
+<div class="jsTest"></div>
 <div id="popup">
   <div class="row">
     <div class="col-md-8 reviewContent">
       <div class="row">
         <div class="cityName col-sm-10">
           <% city = City.last %>
-          <%= city.name %>
+            <% if @clicked_city.nil? %>
+              Uh oh something went wrong
+            <% else %>
+              <%= @clicked_city.name %>
+            <% end %>
         </div>
         <div class="cityScore col-sm-2">
           <div class="cityCircle" style="background-color: #<%= city.color_gradient %>">

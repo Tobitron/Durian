@@ -131,13 +131,12 @@ $.get("/cities.json", function(data) {
     // Grab the marker's lat/long when user clicks, AJAX that shit to the controller
     // My change to MarkerWithLabel seems to have broken this code
     google.maps.event.addListener(marker,'click', function(event) {
-      debugger;
       var latitude = event.latLng.lat();
       var longitude = event.latLng.lng();
 
       $.ajax({
-         method: 'GET',
-         url: '/reviews',
+         method: 'PUT',
+         url: '/cities',
          data: { latitude: latitude, longitude: longitude },
          dataType: 'json'
        });

@@ -1,11 +1,13 @@
 class ReviewsController < ApplicationController
+  # before_action :authenticate_user!, only: [:new, :create]
+
   def index
     @reviews = Review.all
-    latitude = params[:latitude].to_f.round(2)
-    longitude = params[:longitude].to_f.round(2)
-    # This variable gets updated by an ajax request when someone clicks on a Google maps marker.
-    # But how does my view know that it's been updated??
-    @clicked_city = City.find_by(latitude: latitude, longitude: longitude)
+    # latitude = params[:latitude].to_f.round(2)
+    # longitude = params[:longitude].to_f.round(2)
+    # # This variable gets updated by an ajax request when someone clicks on a Google maps marker.
+    # # But how does my view know that it's been updated??
+    # @clicked_city = City.find_by(latitude: latitude, longitude: longitude)
   end
 
   def new
@@ -13,7 +15,7 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = Review.new(tour_params)
+    @review = Review.new(review_params)
     city = City.find_by(id: params[:review][:city_id])
     @review.review_average = @review.calc_review_average
     if @review.save
@@ -26,12 +28,8 @@ class ReviewsController < ApplicationController
     end
   end
 
-  def show
-
-  end
-
   protected
-    def tour_params
+    def review_params
       params.require(:review).permit(:city_id, :description, :value, :beauty, :activities, :friendliness, :food, :touristy)
     end
 end
