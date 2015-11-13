@@ -8,15 +8,6 @@ openBiasCardButton.onclick = function() {
 }
 
 $('#testButton').click(function() {
-  var latitude = 21.0
-  var longitude = 105.0
-
-  $.ajax({
-     method: 'POST',
-     url: '/cities',
-     data: { latitude: latitude, longitude: longitude },
-     dataType: 'json'
-   });
 
   popup.style.display = 'block';
 

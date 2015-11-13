@@ -135,10 +135,13 @@ $.get("/cities.json", function(data) {
       var longitude = event.latLng.lng();
 
       $.ajax({
-         method: 'PUT',
+         method: 'POST',
          url: '/cities',
          data: { latitude: latitude, longitude: longitude },
          dataType: 'json'
+       }).done(function(clicked_city) {
+         // I could populate the entire overlay this way but it'll be a pretty big pain, especially when you get to users, bias, etc. Instead I'll hold out for a Ruby solution and come back to this if need be.
+         document.getElementById("cityName").innerHTML = clicked_city.name
        });
 
       popup.style.display = 'block';
