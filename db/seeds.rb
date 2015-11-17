@@ -1,29 +1,32 @@
-# Not working and I'm not sure why.
-# users = User.create([
-#   {email: "tobias@kahn.com",
-#   first_name: "Tobias",
-#   last_name: "Kahn",
-#   food: 1,
-#   outdoors: 3,
-#   city_person: 3,
-#   off_beaten_track: 4,
-#   touristy: 3,
-#   shopping: 2,
-#   danger: 1,
-#   party: 3},
-#
-#   {email: "mindy@nichamin.com",
-#   first_name: "Mindy",
-#   last_name: "Nichamin",
-#   food: 3,
-#   outdoors: 2,
-#   city_person: 3,
-#   off_beaten_track: 3,
-#   touristy: 2,
-#   shopping: 4,
-#   danger: 2,
-#   party: 3}
-# ])
+users = User.create([
+  {email: "tobias@kahn.com",
+  first_name: "Tobias",
+  last_name: "Kahn",
+  password: "password",
+  password_confirmation: "password",
+  food: 1,
+  outdoors: 3,
+  city_person: 3,
+  off_beaten_track: 4,
+  touristy: 3,
+  shopping: 2,
+  danger: 1,
+  party: 3},
+
+  {email: "mindy@nichamin.com",
+  first_name: "Mindy",
+  last_name: "Nichamin",
+  password: "password",
+  password_confirmation: "password",
+  food: 3,
+  outdoors: 2,
+  city_person: 3,
+  off_beaten_track: 3,
+  touristy: 2,
+  shopping: 4,
+  danger: 2,
+  party: 3}
+])
 
 
 cities = City.create([

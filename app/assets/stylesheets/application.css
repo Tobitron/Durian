@@ -46,6 +46,8 @@
 .reviewContent {
   border: 1px solid;
   background-color: white;
+  height: 30em;
+  overflow: scroll;
 }
 
 .biasCard {
@@ -54,9 +56,9 @@
   background-color: white;
 }
 
-.cityNameRow{
-  padding-top: 1.5em;
-  padding-bottom: 1em;
+.nameAndScoreRow{
+  padding-top: .5em;
+  padding-bottom: 2em;
 }
 
 .cityName {
