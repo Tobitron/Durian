@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-md-8 reviewContent">
+    <div class="row">
+      <div id="cityName" class="cityName col-sm-10">
+        <%= @clicked_city.name %>
+      </div>
+      <div class="cityScore col-sm-2">
+        <div class="cityCircle" style="background-color: #<%= @clicked_city.color_gradient %>">
+            <div class="cityScore"><%= number_to_percentage(@clicked_city.city_review_average * 10, precision: 0) %></div>
+        </div>
+      </div>
+    </div>
+      <% @clicked_city.reviews.each do |review| %>
+        <div class="reviewTitle"> <%= User.find(review.user_id).first_name %>'s Take</div>
+          <%= review.description %>
+        <div class="row seeBiasButton" id="seeBiasButton">
+          <div class="medium-6 medium-centered column"><button>See <%= User.find(review.user_id).first_name %>'s Bias</button></div>
+        </div>
+      <% end %>
+  </div>
+
+
+  <div class="col-md-4 biasCard hidden" id="biasCard">
+    <p>I'm the bias card</p>
+    <p>I'm the bias card</p>
+    <p>I'm the bias card</p>
+    <p>I'm the bias card</p>
+  </div>
+</div>

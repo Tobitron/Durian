@@ -1,37 +1,5 @@
-<div class="jsTest"></div>
-<div id="popup">
-  <div class="row">
-    <div class="col-md-8 reviewContent">
-      <div class="row">
-        <div id="cityName" class="cityName col-sm-10">
-          <% city = City.last %>
-            <% if @clicked_city.nil? %>
-              Uh oh something went wrong
-            <% else %>
-              <%= @clicked_city.name %>
-            <% end %>
-        </div>
-        <div class="cityScore col-sm-2">
-          <div class="cityCircle" style="background-color: #<%= city.color_gradient %>">
-              <div class="cityScore"><%= number_to_percentage(city.city_review_average * 10, precision: 0) %></div>
-          </div>
-        </div>
-      </div>
-      <div class="reviewTitle"> Tobias K.'s Take</div>
-      You’ll come to Siem Reap for Angkor Wat, which is breathtaking, but the city is a nice little bonus. Charming and walkable there’s plenty of delicious food choices and places for a drink. It can get pretty rowdy in parts, but overall it’s a great value ($.50 beers!) and much more pleasant than I expected.
-      <div class="row seeBiasButton" id="seeBiasButton">
-        <div class="medium-6 medium-centered column"><button>See Tobias's Bias</button></div>
-      </div>
-    </div>
-    <div class="col-md-4 biasCard hidden" id="biasCard">
-      <p>I'm the bias card</p>
-      <p>I'm the bias card</p>
-      <p>I'm the bias card</p>
-      <p>I'm the bias card</p>
-    </div>
-  </div>
-</div>
-
+<div id="popup"></div>
 <div id="map"></div>
+
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBT-cR8W-TCwZLqfIIDgASK9Tl-wAMHay8"></script>
 <script src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerwithlabel/src/markerwithlabel.js"></script>

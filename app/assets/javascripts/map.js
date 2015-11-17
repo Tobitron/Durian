@@ -125,10 +125,9 @@ $.get("/cities.json", function(data) {
           fillColor: "#" + city.city_color,
           fillOpacity: 1,
           strokeWeight: 0.6
-      },
+      }
     });
-
-    // Grab the marker's lat/long when user clicks, AJAX that shit to the controller
+    
     // My change to MarkerWithLabel seems to have broken this code
     google.maps.event.addListener(marker,'click', function(event) {
       var latitude = event.latLng.lat();
@@ -138,20 +137,22 @@ $.get("/cities.json", function(data) {
          method: 'POST',
          url: '/cities',
          data: { latitude: latitude, longitude: longitude },
-         dataType: 'json'
-       }).done(function(clicked_city) {
-         // I could populate the entire overlay this way but it'll be a pretty big pain, especially when you get to users, bias, etc. Instead I'll hold out for a Ruby solution and come back to this if need be.
-         document.getElementById("cityName").innerHTML = clicked_city.name
-       });
-
-      popup.style.display = 'block';
-
+         dataType: 'html',
+         success: function(data){
+          popup.style.display = 'block';
+          $("#popup").empty();
+          $("#popup").append(data);
+         },
+         error: function(response) {
+           console.log("error")
+         }
+      });
     });
-  });
 
   // Event that closes the Info Window with a click on the map
   google.maps.event.addListener(map, 'click', function() {
     popup.style.display = 'none';
     biasCard.className = 'col-md-4 biasCard hidden';
+  });
   });
 });
