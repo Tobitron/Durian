@@ -42,7 +42,7 @@
   width: 32em;
 }
 
-.reviewContent {
+#reviewContent {
   border: 1px solid;
   background-color: white;
   height: 30em;

@@ -1,5 +1,5 @@
-<div class="row">
-  <div class="col-md-12 reviewContent">
+<div id="whyDoesThisExist" class="row">
+  <div id="reviewContent" class="col-md-12">
     <div class="row nameAndScoreRow">
       <div id="cityName" class="cityName col-sm-10">
         <%= @clicked_city.name %>
@@ -16,7 +16,7 @@
           <%= review.description %>
         <div class="row seeBiasButton">
           <div class="medium-6 medium-centered column"><button id="<%= reviewer.first_name %>">See <%= reviewer.first_name %>'s Bias</button></div>
-          <!-- Something tells me DHH wouldn't be proud with below code, but by god it works -->
+         <!-- TODO learn a nice rails way to do this -->
           <script>
             var reviewerName = "<%= reviewer.first_name %>"
             $('#' + reviewerName ).click(function() {
@@ -25,7 +25,11 @@
                  url: '/reviews/' + <%= reviewer.id.to_s %>,
                  dataType: 'html',
                  success: function(data){
-                  $(".reviewContent").append(data);
+                  // this is such a hack
+                  $("#whyDoesThisExist").css('width', '150%');
+                  $("#reviewContent").attr("class", 'col-md-8');
+                  $("#biasCard").remove();
+                  $("#reviewContent").after(data);
                  },
                  error: function(response) {
                    console.log("error")
