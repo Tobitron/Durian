@@ -9,6 +9,10 @@ class City < ActiveRecord::Base
     review_aggregate / self.reviews.count
   end
 
+  def has_reviews?
+    self.reviews.count > 0
+  end
+
   def color_gradient
     # I'll refactor this into a method that increments somehow, but for now HEX codes make my brain hurt
     # and I just want something that works

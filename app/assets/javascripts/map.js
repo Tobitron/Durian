@@ -107,7 +107,7 @@ var style_array = [
 ]
 
 $.get("/cities.json", function(data) {
-  cityData = data;
+  cityData = data["cities"];
 
   map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 10.209, lng: 108},
@@ -119,19 +119,26 @@ $.get("/cities.json", function(data) {
    },
   });
 
-  cityData["cities"].forEach(function(city) {
-    var marker = new google.maps.Marker({
-      position: new google.maps.LatLng(city.latitude, city.longitude),
-      opacity: 0.8,
-      map: map,
-      icon: {
-          path: google.maps.SymbolPath.CIRCLE,
-          scale: 18,
-          fillColor: "#" + city.city_color,
-          fillOpacity: 1,
-          strokeWeight: 0.6
-      }
-    });
+  // Remove cities that don't have any reviews from array, don't want them on the map with no reviews!
+  for(var i = cityData.length - 1; i >= 0; i--) {
+    if(cityData[i].city_reviews.length === 0) {
+       cityData.splice(i, 1);
+    }
+  }
+
+  cityData.forEach(function(city) {
+      var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(city.latitude, city.longitude),
+        opacity: 0.8,
+        map: map,
+        icon: {
+            path: google.maps.SymbolPath.CIRCLE,
+            scale: 18,
+            fillColor: "#" + city.city_color,
+            fillOpacity: 1,
+            strokeWeight: 0.6
+        }
+      });
 
     // My change to MarkerWithLabel seems to have broken this code
     google.maps.event.addListener(marker,'click', function(event) {
