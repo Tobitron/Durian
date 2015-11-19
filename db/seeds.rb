@@ -30,11 +30,11 @@ users = User.create([
 
 
 cities = City.create([
-  {name: "Bangkok", latitude: 13.7563, longitude: 100.5018, city_review_average: 6.0},
-  {name: "Hanoi", latitude: 21.0285, longitude: 105.8542, city_review_average: 8.5},
-  {name: "Siem Reap", latitude: 13.3622, longitude: 103.8597, city_review_average: 8.0},
-  {name: "Chiang Mai", latitude: 18.7953, longitude: 98.9986, city_review_average: 6.0},
-  {name: "Ho Chi Minh City", latitude: 10.7500, longitude: 106.6667, city_review_average: 5.0}
+  {name: "Bangkok", latitude: 13.7563, longitude: 100.5018},
+  {name: "Hanoi", latitude: 21.0285, longitude: 105.8542},
+  {name: "Siem Reap", latitude: 13.3622, longitude: 103.8597},
+  # {name: "Chiang Mai", latitude: 18.7953, longitude: 98.9986},
+  # {name: "Ho Chi Minh City", latitude: 10.7500, longitude: 106.6667}
 ])
 
 reviews = Review.create([
@@ -85,8 +85,8 @@ user_id: 2,
 {description: "You go to Siem Reap for Angkor Wat, which is undeniably one of the great wonders of the world. It's so cool. The city is a nice little added bonus. It's cute, really affordable and nicely walkable which is hard to find in SE Asia. It's filled with tourists but doesn't feel strangled by them, it's still a place to eat and get a drink after the temples but it's a lot better than I expected.",
   city_id: 3,
   value: 8.0,
-  beauty: 6.0,
-  activities: 9,
+  beauty: 8.0,
+  activities: 9.0,
   friendliness: 7.0,
   food: 6,
   touristy: 2.0,
@@ -97,10 +97,20 @@ user_id: 2,
   city_id: 3,
   value: 7.5,
   beauty: 5.0,
-  activities: 8,
-  friendliness: 6.0,
+  activities: 8.0,
+  friendliness: 7.0,
   food: 8.0,
   touristy: 5.0,
   user_id: 2,
   },
-              ])
+])
+
+Review.all.each do |review|
+  review.review_average = review.calc_review_average
+  review.save
+end
+
+City.all.each do |city|
+  city.city_review_average = city.calc_city_review_average
+  city.save
+end

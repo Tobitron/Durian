@@ -6,3 +6,5 @@ var popup = document.getElementById('popup');
 // openBiasCardButton.onclick = function() {
 //  biasCard.className = 'col-md-4 biasCard';
 // }
+
+$(".flash").fadeOut(3000);
