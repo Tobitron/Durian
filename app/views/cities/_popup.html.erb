@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-8 reviewContent">
+  <div class="col-md-12 reviewContent">
     <div class="row nameAndScoreRow">
       <div id="cityName" class="cityName col-sm-10">
         <%= @clicked_city.name %>
@@ -11,25 +11,29 @@
       </div>
     </div>
       <% @clicked_city.reviews.each do |review| %>
-        <div class="reviewTitle"> <%= User.find(review.user_id).first_name %>'s Take</div>
+        <% reviewer = User.find(review.user_id) %>
+        <div class="reviewTitle"> <%= reviewer.first_name %>'s Take</div>
           <%= review.description %>
         <div class="row seeBiasButton">
-          <div class="medium-6 medium-centered column"><button id="seeBiasButton">See <%= User.find(review.user_id).first_name %>'s Bias</button></div>
+          <div class="medium-6 medium-centered column"><button id="<%= reviewer.first_name %>">See <%= reviewer.first_name %>'s Bias</button></div>
+          <!-- Something tells me DHH wouldn't be proud with below code, but by god it works -->
+          <script>
+            var reviewerName = "<%= reviewer.first_name %>"
+            $('#' + reviewerName ).click(function() {
+              $.ajax({
+                 method: 'PATCH',
+                 url: '/reviews/' + <%= reviewer.id.to_s %>,
+                 dataType: 'html',
+                 success: function(data){
+                  $(".reviewContent").append(data);
+                 },
+                 error: function(response) {
+                   console.log("error")
+                 }
+              });
+            });
+          </script>
         </div>
       <% end %>
   </div>
-
-  <div class="col-md-4 biasCard hidden" id="biasCard">
-    <p>I'm the bias card</p>
-    <p>I'm the bias card</p>
-    <p>I'm the bias card</p>
-    <p>I'm the bias card</p>
-  </div>
 </div>
-
-<script>
-  // This works here but not in a seperate js file. Clearly something with when/how files are loaded, would like to understand
-  $("#seeBiasButton").click(function(){
-      biasCard.className = 'col-md-4 biasCard';
-  });
-</script>

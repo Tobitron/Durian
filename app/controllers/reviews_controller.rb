@@ -3,11 +3,6 @@ class ReviewsController < ApplicationController
 
   def index
     @reviews = Review.all
-    # latitude = params[:latitude].to_f.round(2)
-    # longitude = params[:longitude].to_f.round(2)
-    # # This variable gets updated by an ajax request when someone clicks on a Google maps marker.
-    # # But how does my view know that it's been updated??
-    # @clicked_city = City.find_by(latitude: latitude, longitude: longitude)
   end
 
   def new
@@ -25,6 +20,14 @@ class ReviewsController < ApplicationController
       redirect_to new_review_path
     else
       render 'new'
+    end
+  end
+
+  def update
+    # use the review id to find the user it belongs to, create an instant variable, pass this to bias card partial
+    @biased_user = Review.find(params[:id]).user
+    respond_to do |format|
+      format.js {render :partial => 'bias_card'}
     end
   end
 

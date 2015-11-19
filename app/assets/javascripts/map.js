@@ -82,10 +82,10 @@ var style_array = [
                 "visibility": "off"
             },
             {
-                "saturation": -100
+                "saturation": 0
             },
             {
-                "lightness": 60
+                "lightness": 100
             }
         ]
     },
@@ -100,7 +100,7 @@ var style_array = [
                 "saturation": -100
             },
             {
-                "lightness": 60
+                "lightness": 100
             }
         ]
     }
@@ -112,12 +112,17 @@ $.get("/cities.json", function(data) {
   map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 10.209, lng: 108},
     zoom: 5,
-    styles: style_array
+    styles: style_array,
+    zoomControl: true,
+    zoomControlOptions: {
+       position: google.maps.ControlPosition.RIGHT_TOP
+   },
   });
 
   cityData["cities"].forEach(function(city) {
     var marker = new google.maps.Marker({
       position: new google.maps.LatLng(city.latitude, city.longitude),
+      opacity: 0.8,
       map: map,
       icon: {
           path: google.maps.SymbolPath.CIRCLE,
@@ -127,7 +132,7 @@ $.get("/cities.json", function(data) {
           strokeWeight: 0.6
       }
     });
-    
+
     // My change to MarkerWithLabel seems to have broken this code
     google.maps.event.addListener(marker,'click', function(event) {
       var latitude = event.latLng.lat();
