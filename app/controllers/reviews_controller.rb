@@ -32,6 +32,9 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def info
+  end
+
   protected
     def review_params
       params.require(:review).permit(:city_id, :description, :value, :beauty, :activities, :friendliness, :food, :touristy)

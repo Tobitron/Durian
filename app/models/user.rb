@@ -24,6 +24,21 @@ class User < ActiveRecord::Base
   def outdoors_bias_text
     case self.food
       when 1
+        "You won't find #{self.first_name} in the outdoors."
+      when 2
+        "Does going to a city park count as outdoors?"
+      when 3
+        "Appreciates nature, likes to get outside when possible."
+      when 4
+        "A nature lover, always trying to explore the outdoors."
+      else
+        "Something went wrong"
+    end
+  end
+
+  def city_person_bias_text
+    case self.food
+      when 1
         "Won't find them in the outdoors."
       when 2
         "Does going to a city park count as outdoors?"
@@ -36,12 +51,5 @@ class User < ActiveRecord::Base
     end
   end
 
-  # t.integer  "food"
-  # t.integer  "outdoors"
-  # t.integer  "city_person"
-  # t.integer  "off_beaten_track"
-  # t.integer  "touristy"
-  # t.integer  "shopping"
-  # t.integer  "danger"
-  # t.integer  "party"
+
 end
