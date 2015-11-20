@@ -16,7 +16,6 @@ users = User.create([
 
 
 cities = City.create([
-
   # Seed reviews
   {name: "Bangkok", latitude: 13.7563, longitude: 100.5018},
   {name: "Hanoi", latitude: 21.0285, longitude: 105.8542},
