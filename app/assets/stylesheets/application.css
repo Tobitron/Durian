@@ -16,6 +16,14 @@
  *= require bootstrap
  */
 
+.nav {
+  max-width: 100%;
+}
+
+.right {
+  display: inline;
+}
+
 #map {
   height: 100%;
   width: 100%;
