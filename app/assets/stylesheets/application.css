@@ -30,6 +30,20 @@
   z-index: 100;
 }
 
+.darkness {
+  width: 100%;
+  height: 100%;
+  z-index: 200;
+  background-color: black;
+  opacity: .7;
+  position: absolute;
+}
+
+/*.darkIntoLight {
+  z-index: 100;
+  opacity: .3;
+}*/
+
 .description {
   height: 300px;
 }
@@ -43,7 +57,7 @@
 #popup{
   position: absolute;
   margin: 0 auto;
-  z-index: 200;
+  z-index: 300;
   left: 0;
   right: 0;
   margin-top: 10%;

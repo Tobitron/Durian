@@ -20,6 +20,11 @@ cities = City.create([
   {name: "Bangkok", latitude: 13.7563, longitude: 100.5018},
   {name: "Hanoi", latitude: 21.0285, longitude: 105.8542},
   {name: "Siem Reap", latitude: 13.3622, longitude: 103.8597},
+  {name: "Pai", latitude: 19.3589, longitude: 98.4367},
+  {name: "Hoi An", latitude: 15.8833, longitude: 108.3333},
+  {name: "Ko Phi Phi", latitude: 7.7333, longitude: 98.7667},
+  {name: "Ko Lanta", latitude: 7.6556, longitude: 99.0419},
+  {name: "Yangon", latitude: 16.8000, longitude: 96.1500},
 
   # Cambodia
   {name: "Phnom Penh", latitude: 11.5500, longitude: 104.9167},
@@ -61,7 +66,6 @@ cities = City.create([
 
   # Myanmar
   {name: "Mandalay", latitude: 21.9750, longitude: 96.0833},
-  {name: "Yangon", latitude: 16.8000, longitude: 96.1500},
   {name: "Bagan", latitude: 21.1667, longitude: 94.8667},
   {name: "Inle Lake", latitude: 20.5500, longitude: 96.9167}
 ])
@@ -98,7 +102,62 @@ user_id: 1,
   food: 6,
   touristy: 2.0,
   user_id: 1,
-  }
+},
+
+{description: "Go to SE Asia, and you'll hear about Pai. Everyone says it's amazing. Guess what? It's amazing! A mountain town a couple of hours from Chiang Mai, Pai is essentially a little hippie paradise. Yeah by now it's dominated by backpackers, but it's so nice! The surrounding areas are gorgeous and perfect for leisurely motorbike exploration. There's lots of yoga, muay thai, spas around, and many friendly locals and backpackers to enjoy the bars and cafes with.",
+  city_id: 4,
+  value: 8.0,
+  beauty: 9.0,
+  activities: 9.0,
+  friendliness: 8.0,
+  food: 6,
+  touristy: 3.0,
+  user_id: 1,
+},
+
+{description: "Hoi An is another of those cities that everyone raves about, and for good reason. It's lovely and the food is just outstanding. The main draw is its Unesco old city, a warren of trader houses from when Hoi An was a major trading nexus of the old orient. It's super cute, really touristy but for good reason. People also come here for the tailors which are awesome. I got a suit I LOVE for $150.",
+  city_id: 5,
+  value: 8.0,
+  beauty: 7.5,
+  activities: 7.0,
+  friendliness: 7.0,
+  food: 10,
+  touristy: 4.0,
+  user_id: 1,
+},
+
+{description: "Koh Phi Phi is Thai disneyland. Do you like drunked early 20s tourists and nothing else? You'll love Ko Phi Phi! I don't mean to be a hater, if you like partying, you'd be down with Ko Phi Phi. But I think there's cheaper, better places to party. And the beaches aren't even nice! If you're like me, skip it.",
+  city_id: 6,
+  value: 4.0,
+  beauty: 7.5,
+  activities: 7.0,
+  friendliness: 4.0,
+  food: 3,
+  touristy: 9.0,
+  user_id: 1,
+},
+
+{description: "I went to Koh Lanta in the offseason and enjoyed it. Our hotel was cheeeaap and super nice. It's big enough that you leisurely scooter around the island looking for the next chilled out beach. There's a few great ones, and generally a nice relaxed island vibe here. Not the *best* in any category, but all around a nice package.",
+  city_id: 7,
+  value: 7,
+  beauty: 7.5,
+  activities: 7.0,
+  friendliness: 6.0,
+  food: 6,
+  touristy: 5.0,
+  user_id: 1,
+},
+
+{description: "I was caught off guard by how much I loved Yangon. The dense market streets filled with knick knacks and delicious things, the old train that circles the city Darjeeling Limited style, the out of this world friendly people, so happy to meet you. Yangon is probably what it felt like to travel to Asia 30 years ago, but with the infrastructure of a modern city (well mostly).",
+  city_id: 8,
+  value: 8.0,
+  beauty: 7.0,
+  activities: 7.0,
+  friendliness: 9.0,
+  food: 8,
+  touristy: 3.0,
+  user_id: 1,
+}
 ])
 
 Review.all.each do |review|

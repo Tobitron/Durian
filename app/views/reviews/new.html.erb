@@ -1,12 +1,13 @@
-<% cities_array = City.all.map { |city| [city.name, city.id] } %>
-
 <%= form_for @review do |f| %>
   <div class="row">
     <div class="small-1 columns">
       <%= f.label :city %>
     </div>
-    <div class="small-4 columns end">
-      <%= f.select :city_id, options_for_select(cities_array) %>
+    <div class="small-4 columns">
+      <%= f.select :city_id, options_for_select(@cities_array) %>
+    </div>
+    <div class="small-6 columns end">
+      Don't see your city? Add it at the bottom of this page.
     </div>
   </div>
 
@@ -96,5 +97,18 @@
     <div class="small-2 columns end">
       <%= f.submit class: :button %>
     </div>
+  </div>
+<% end %>
+
+<% @city = City.new %>
+<%= form_for @city do |f| %>
+  <div class="row">
+    <div class="small-1 columns">
+      <%= f.label :new_city %>
+    </div>
+    <div class="small-6 columns end">
+      <%= f.text_field :name %>
+    </div>
+    <%= f.submit class: :button %>
   </div>
 <% end %>

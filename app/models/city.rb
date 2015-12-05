@@ -1,6 +1,9 @@
 class City < ActiveRecord::Base
   has_many :reviews
 
+  # geocoded_by :name
+  # after_validation :geocode
+
   def calc_city_review_average
     review_aggregate = 0
     self.reviews.each do |review|
@@ -13,9 +16,13 @@ class City < ActiveRecord::Base
     self.reviews.count > 0
   end
 
+  def self.cities_alphabetized
+    array = City.all.map { |city| [city.name, city.id] }
+    array.sort_by!{|word| word}
+  end
+
   def color_gradient
-    # I'll refactor this into a method that increments somehow, but for now HEX codes make my brain hurt
-    # and I just want something that works
+    #TODO I'll refactor this into a method that increments somehow, but for now just need something that works
     case self.city_review_average
       when 0.0..0.34
         "FF0000"
