@@ -1,24 +1,22 @@
 <div id="biasContainerHelper">
-  <div id="reviewContent" class="col-md-12NOT">
-    <div class="row nameAndScoreRow">
-      <div id="cityName" class="cityName col-sm-10">
+  <div id="reviewContent" class="col-md-12 standardContainer">
+    <div class="row cityNameAndScoreRow">
+      <h1 id="cityName" class="cityName col-sm-10">
         <%= @clicked_city.name %>
-      </div>
-      <div class="cityScore col-sm-2">
-        <div class="cityCircle" style="background-color: #<%= @clicked_city.color_gradient %>">
-            <% unless @clicked_city.city_review_average.nil? %>
-              <div class="cityScore"><%= number_to_percentage(@clicked_city.city_review_average * 10, precision: 0) %></div>
-            <% end %>
-        </div>
+      </h1>
+      <div class="cityCircle col-sm-2" style="background-color: #<%= @clicked_city.color_gradient %>">
+          <% unless @clicked_city.city_review_average.nil? %>
+            <div class="cityScoreText"><%= number_to_percentage(@clicked_city.city_review_average * 10, precision: 0) %></div>
+          <% end %>
       </div>
     </div>
       <% @clicked_city.reviews.each do |review| %>
         <% reviewer = User.find(review.user_id) %>
-        <div class="reviewTitle"> <%= reviewer.first_name %>'s Take</div>
+        <h3> <%= reviewer.first_name %>'s Take</h3>
           <%= review.description %>
         <div class="row seeBiasButton">
           <div class="medium-6 medium-centered column"><button id="<%= reviewer.first_name %>">See <%= reviewer.first_name %>'s Bias</button></div>
-         <!-- TODO learn a nice rails way to do this -->
+          <!-- One could argue my JS should be separate from the view, but I think it's helpful to have it here, easily viewable. -->
           <script>
             var reviewerName = "<%= reviewer.first_name %>"
             $('#' + reviewerName ).click(function() {
@@ -29,7 +27,7 @@
                  success: function(data){
                   // TODO This is effective but I'd like to find a more elegant solution
                   $("#biasContainerHelper").css('width', '150%');
-                  $("#reviewContent").attr("class", 'col-md-8');
+                  $("#reviewContent").addClass('col-md-8');
                   $("#biasCard").remove();
                   $("#reviewContent").after(data);
                  },

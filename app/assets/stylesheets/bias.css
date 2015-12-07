@@ -1,0 +1,7 @@
+/* Bias card styling coming soon at an app near you! */
+
+.biasCard {
+  display: hidden;
+  border: 1px solid black;
+  background-color: white;
+}
