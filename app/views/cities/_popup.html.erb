@@ -1,5 +1,5 @@
-<div id="whyDoesThisExist" class="row">
-  <div id="reviewContent" class="col-md-12">
+<div id="biasContainerHelper">
+  <div id="reviewContent" class="col-md-12NOT">
     <div class="row nameAndScoreRow">
       <div id="cityName" class="cityName col-sm-10">
         <%= @clicked_city.name %>
@@ -27,8 +27,8 @@
                  url: '/reviews/' + <%= reviewer.id.to_s %>,
                  dataType: 'html',
                  success: function(data){
-                  // this is such a hack
-                  $("#whyDoesThisExist").css('width', '150%');
+                  // TODO This is effective but I'd like to find a more elegant solution
+                  $("#biasContainerHelper").css('width', '150%');
                   $("#reviewContent").attr("class", 'col-md-8');
                   $("#biasCard").remove();
                   $("#reviewContent").after(data);

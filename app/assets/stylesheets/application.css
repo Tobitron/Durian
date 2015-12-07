@@ -67,7 +67,10 @@
 #reviewContent {
   border: 1px solid;
   background-color: white;
-  height: 30em;
+  padding-top: 1em;
+  padding-left: 2.5em;
+  padding-right: 2.5em;
+  height: 30%;
   overflow: scroll;
 }
 
@@ -78,22 +81,24 @@
 }
 
 .nameAndScoreRow{
-  padding-top: .5em;
+  /*padding-top: .5em;*/
   padding-bottom: 2em;
 }
 
 .cityName {
+  /* counteract Bootstraps default padding */
+  padding-left: 0;
   font-size: 2em;
   font-weight: bold;
-  margin-top: .3em;
+  /*margin-top: .3em;*/
 }
 
 /* not sure where below class is! */
 .reviewContainer {
   height: 35em;
   overflow: scroll;
-  padding-left: 3em;
-  padding-right: 3em;
+  /*padding-left: 3em;
+  padding-right: 3em;*/
   font-size: 1.25em;
 }
 
@@ -158,4 +163,9 @@
   margin-left: 2em;
   margin-right: 2em;
   width: 90%;
+}
+
+.experimentBox {
+  z-index: 300;
+border: 2px solid pink;
 }
