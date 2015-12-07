@@ -45,7 +45,7 @@
   left: 0;
   right: 0;
   margin-top: 10%;
-  width: 45%;
+  width: 40%;
 }
 
 .new_review {
@@ -74,4 +74,5 @@
 
 .standardContainer {
   padding: 2em;
+  padding-top: 1em;
 }
