@@ -10,32 +10,35 @@
           <% end %>
       </div>
     </div>
+      <% reviewer_ids = [] %>
       <% @clicked_city.reviews.each do |review| %>
         <% reviewer = User.find(review.user_id) %>
+        <% reviewer_ids << reviewer.id %>
         <h3> <%= reviewer.first_name %>'s Take</h3>
           <%= review.description %>
         <div class="row seeBiasButton">
-          <div class="medium-6 medium-centered column"><button id="<%= reviewer.first_name %>">See <%= reviewer.first_name %>'s Bias</button></div>
-          <!-- One could argue my JS should be separate from the view, but I think it's helpful to have it here, easily viewable. -->
+          <div class="medium-6 medium-centered column"><button id="<%= reviewer.id %>">See <%= reviewer.first_name %>'s Bias</button></div>
+          <!-- One could argue my JS should be separate from the view, but I think it's helpful to have it here in plain site and Ruby makes things easier. -->
           <script>
-            var reviewerName = "<%= reviewer.first_name %>"
-            $('#' + reviewerName ).click(function() {
-              $.ajax({
-                 method: 'PATCH',
-                 url: '/reviews/' + <%= reviewer.id.to_s %>,
-                 dataType: 'html',
-                 success: function(data){
-                  // TODO This is effective but I'd like to find a more elegant solution
-                  $("#biasContainerHelper").css('width', '150%');
-                  $("#reviewContent").addClass('col-md-8');
-                  $("#biasCard").remove();
-                  $("#reviewContent").after(data);
-                 },
-                 error: function(response) {
-                   console.log("error")
-                 }
+            <% reviewer_ids.each do |id| %>
+              $('#' + <%= id %> ).click(function() {
+                $.ajax({
+                   method: 'PATCH',
+                   url: '/reviews/' + <%= id %>,
+                   dataType: 'html',
+                   success: function(data){
+                    // TODO Increasing #biasContainerHlper width is effective but I'd like to find a more elegant solution
+                    $("#biasContainerHelper").css('width', '150%');
+                    $("#reviewContent").addClass('col-md-8');
+                    $("#biasCard").remove();
+                    $("#reviewContent").after(data);
+                   },
+                   error: function(response) {
+                     console.log("error")
+                   }
+                });
               });
-            });
+              <% end %>
           </script>
         </div>
       <% end %>

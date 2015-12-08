@@ -71,7 +71,7 @@ class User < ActiveRecord::Base
       when 1
         "Consumerism and travel don't mix."
       when 2
-        "Might pickup a souvenir or two, but now why they travel by any means."
+        "Might pickup a souvenir or two, but not why they travel by any means."
       when 3
         "Likes to take home souvenirs but not a focus."
       when 4
@@ -84,7 +84,7 @@ class User < ActiveRecord::Base
   def danger_bias_text
     case self.danger
       when 1
-        "Danger is my middle name. Bring it on"
+        "Danger is my middle name. Bring it on."
       when 2
         "Doesn't really think about sketchiness unless they're somewhere really bad."
       when 3

@@ -18,7 +18,7 @@ class ReviewsController < ApplicationController
     if @review.save
       flash[:success] = "Review created! Write another one?"
       city.city_review_average = city.calc_city_review_average
-      city.save # This should be in the model and it could blow up the app if it fails, other than that great job me!
+      city.save # TODO This should be in the model and it could blow up the app if it fails, other than that great job me!
       redirect_to new_review_path
     else
       render 'new'
@@ -27,7 +27,7 @@ class ReviewsController < ApplicationController
 
   def update
     # use the review id to find the user it belongs to, create an instant variable, pass this to bias card partial
-    @biased_user = Review.find(params[:id]).user
+    @biased_user = User.find(params[:id])
     respond_to do |format|
       format.js {render :partial => 'bias_card'}
     end
