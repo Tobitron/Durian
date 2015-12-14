@@ -1,8 +1,8 @@
 class City < ActiveRecord::Base
   has_many :reviews
 
-  # geocoded_by :name
-  # after_validation :geocode
+  geocoded_by :name
+  after_validation :geocode
 
   def calc_city_review_average
     review_aggregate = 0

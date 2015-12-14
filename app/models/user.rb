@@ -71,7 +71,7 @@ class User < ActiveRecord::Base
       when 1
         "Consumerism and travel don't mix."
       when 2
-        "Might pickup a souvenir or two, but not why they travel by any means."
+        "Might pickup a souvenir or two, but not why I travel by any means."
       when 3
         "Likes to take home souvenirs but not a focus."
       when 4

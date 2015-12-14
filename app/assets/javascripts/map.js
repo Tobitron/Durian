@@ -33,9 +33,8 @@ $.get("/cities.json", function(data) {
             strokeWeight: 0.6
         }
       });
-
-      // Create an array with marker info so I can set icon scale later
-      markerArray.push([marker, city.city_color]);
+    // Create an array with marker info so I can set icon scale later
+    markerArray.push([marker, city.city_color, city.name]);
 
     // My change to MarkerWithLabel broken this code, reverted back to standard Gmaps marker
     google.maps.event.addListener(marker,'click', function(event) {
@@ -58,7 +57,24 @@ $.get("/cities.json", function(data) {
          }
       });
     });
-  });
+  })
+
+
+  markerArray.forEach(function(marker) {
+    google.maps.event.addListener(marker[0], 'mouseover', function(event){
+
+      var infowindow = new google.maps.InfoWindow({
+        content: '<strong>' + marker[2] + '</strong>'
+      });
+
+      infowindow.open(map, marker[0]);
+
+      google.maps.event.addListener(marker[0], 'mouseout', function () {
+           infowindow.close();
+       });
+    })
+  })
+
 
   // Change icon scale on zoom
   map.addListener('zoom_changed', function() {

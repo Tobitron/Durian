@@ -57,7 +57,9 @@
 }
 
 .lime {
-  background-color: lime;
+  border: 2px solid lime;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 
@@ -75,4 +77,9 @@
 .standardContainer {
   padding: 2em;
   padding-top: 1em;
+}
+
+.biasWrapper {
+  width: 75%;
+  margin: 0 auto
 }
