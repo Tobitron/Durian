@@ -12,7 +12,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'active_model_serializers'
 # gem 'rails-api' I can't remember what this does and it's braking devise's CSRF authentication
 gem 'responders'
-gem 'geocoder'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

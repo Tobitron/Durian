@@ -1,4 +1,21 @@
+$("#addCityButton").click(function(){
+  newCity = $("#addCity").val()
+  var geocoder = new google.maps.Geocoder();
+  geocoder.geocode({address: newCity}, function(results, status) {
+    $.ajax({
+       method: 'POST',
+       url: '/cities',
+       data: { name: newCity, latitude: results[0].geometry.location.lat(), longitude: results[0].geometry.location.lng() },
+       dataType: 'html',
+       error: function(response) {
+         console.log("error")
+       }
+    });
+  });
+});
+
 $.get("/cities.json", function(data) {
+
   cityData = data["cities"];
 
   map = new google.maps.Map(document.getElementById('map'), {
@@ -43,7 +60,7 @@ $.get("/cities.json", function(data) {
 
       $.ajax({
          method: 'POST',
-         url: '/cities',
+         url: '/cities/popup',
          data: { latitude: latitude, longitude: longitude },
          dataType: 'html',
          success: function(data){
@@ -90,7 +107,6 @@ $.get("/cities.json", function(data) {
       });
     };
   });
-
 });
 
 

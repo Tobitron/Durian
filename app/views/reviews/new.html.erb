@@ -1,16 +1,24 @@
+<div class="addCityContainer">
+  <input id="addCity" type="text">
+  <button id="addCityButton">Add City</button>
+</div>
+
 <%= form_for @review do |f| %>
   <div class="row">
     <div class="small-1 columns">
       <%= f.label :city %>
     </div>
-    <div class="small-4 columns">
+    <div class="small-3 columns">
       <%= f.select :city_id, options_for_select(@cities_array) %>
     </div>
-    <div class="small-6 columns end">
-      Don't see your city? Add it at the bottom of this page.
+    <div class="small-5 columns">
+      Don't see a city you want to review? Add it -->
+      <br>
+      Then refresh the page.
+    </div>
+    <div class="small-3 columns">
     </div>
   </div>
-
   <div class="row">
     <div class="small-1 columns">
       <%= f.label :description %>
@@ -100,15 +108,4 @@
   </div>
 <% end %>
 
-<% @city = City.new %>
-<%= form_for @city do |f| %>
-  <div class="row">
-    <div class="small-1 columns">
-      <%= f.label :new_city %>
-    </div>
-    <div class="small-6 columns end">
-      <%= f.text_field :name %>
-    </div>
-    <%= f.submit class: :button %>
-  </div>
-<% end %>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBT-cR8W-TCwZLqfIIDgASK9Tl-wAMHay8"></script>

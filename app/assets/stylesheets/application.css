@@ -83,3 +83,9 @@
   width: 75%;
   margin: 0 auto
 }
+
+.addCityContainer {
+  float: right;
+  margin-right: 15%;
+  margin-top: 2em;
+}
