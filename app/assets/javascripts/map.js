@@ -1,5 +1,5 @@
 $("#addCityButton").click(function(){
-  newCity = $("#addCity").val()
+  newCity = $(".addCity").val()
   var geocoder = new google.maps.Geocoder();
   geocoder.geocode({address: newCity}, function(results, status) {
     $.ajax({
@@ -40,7 +40,7 @@ $.get("/cities.json", function(data) {
   cityData.forEach(function(city) {
         marker = new google.maps.Marker({
         position: new google.maps.LatLng(city.latitude, city.longitude),
-        opacity: 0.8,
+        opacity: 0.6,
         map: map,
         icon: {
             path: google.maps.SymbolPath.CIRCLE,
@@ -100,7 +100,7 @@ $.get("/cities.json", function(data) {
     for (i = 0; i < markerArray.length; i++) {
       markerArray[i][0].setIcon({
         path: google.maps.SymbolPath.CIRCLE,
-        scale: (zoom * zoom) / 2,
+        scale: (zoom * zoom) / 3,
         fillColor: "#" + markerArray[i][1],
         fillOpacity: 1,
         strokeWeight: 0.6

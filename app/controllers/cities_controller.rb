@@ -27,4 +27,9 @@ class CitiesController < ApplicationController
       format.js {render :partial => 'popup'}
     end
   end
+
+  protected
+    def city_params
+      params.require(:city).permit(:name, :latitude, :longitude)
+    end
 end

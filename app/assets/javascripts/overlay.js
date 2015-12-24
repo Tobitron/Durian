@@ -7,4 +7,4 @@ $("#darkness").click(function() {
   biasCard.className = 'col-md-4 biasCard hidden';
 });
 
-$(".flash").fadeOut(3500);
+$(".flash").fadeOut(7000);
