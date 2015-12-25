@@ -2,22 +2,26 @@ class Review < ActiveRecord::Base
   belongs_to :city
   belongs_to :user
 
-  validates :value, presence: { message: "You must input value." },
+  generic_validation_message = "must have an input value."
+
+  validates :description, presence: true
+
+  validates :value, presence: { message: generic_validation_message },
            numericality: { only_integer: true, greater_than: 0.0, less_than: 10.01 }
 
-  validates :beauty, presence: { message: "You must input beauty." },
+  validates :beauty, presence: { message: generic_validation_message },
             numericality: { only_integer: true, greater_than: 0.0, less_than: 10.01 }
 
-  validates :activities, presence: { message: "You must input a activity score." },
+  validates :activities, presence: { message: generic_validation_message },
             numericality: { only_integer: true, greater_than: 0.0, less_than: 10.01 }
 
-  validates :friendliness, presence: { message: "You must input a friendliness score." },
+  validates :friendliness, presence: { message: generic_validation_message },
             numericality: { only_integer: true, greater_than: 0.0, less_than: 10.01 }
 
-  validates :food, presence: { message: "You must input a food score." },
+  validates :food, presence: { message: generic_validation_message },
             numericality: { only_integer: true, greater_than: 0.0, less_than: 10.01 }
 
-  validates :touristy, presence: { message: "You must input a touristy score." },
+  validates :touristy, presence: { message: generic_validation_message },
             numericality: { only_integer: true, greater_than: 0.0, less_than: 10.01 }
 
   def calc_review_average

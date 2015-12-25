@@ -16,6 +16,7 @@ class CitiesController < ApplicationController
       redirect_to new_review_path
     else
       flash[:notice] = "Your city couldn't be created"
+      redirect_to new_review_path
     end
   end
 
@@ -30,6 +31,7 @@ class CitiesController < ApplicationController
 
   protected
     def city_params
+      #TODO explore if I can incorporate strong params with ajax call to #create or need to switch to Geocoder gem
       params.require(:city).permit(:name, :latitude, :longitude)
     end
 end

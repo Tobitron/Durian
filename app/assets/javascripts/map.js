@@ -29,11 +29,11 @@ $.get("/cities.json", function(data) {
   });
 
   // Remove cities that don't have any reviews from array, don't want them on the map with no reviews!
-  for(var i = cityData.length - 1; i >= 0; i--) {
-    if(cityData[i].city_reviews.length === 0) {
+  for (var i = cityData.length - 1; i >= 0; i--) {
+    if (cityData[i].city_reviews.length === 0) {
        cityData.splice(i, 1);
     }
-  }
+  };
 
   // Create map markers
   var markerArray = [];
@@ -45,7 +45,7 @@ $.get("/cities.json", function(data) {
         icon: {
             path: google.maps.SymbolPath.CIRCLE,
             scale: 13,
-            fillColor: "#" + city.city_color,
+            fillColor: city.city_color,
             fillOpacity: 1,
             strokeWeight: 0.6
         }
@@ -72,9 +72,9 @@ $.get("/cities.json", function(data) {
          error: function(response) {
            console.log("error")
          }
-      });
-    });
-  })
+      })
+    })
+  });
 
 
   markerArray.forEach(function(marker) {
@@ -90,7 +90,7 @@ $.get("/cities.json", function(data) {
            infowindow.close();
        });
     })
-  })
+  });
 
 
   // Change icon scale on zoom
@@ -101,7 +101,7 @@ $.get("/cities.json", function(data) {
       markerArray[i][0].setIcon({
         path: google.maps.SymbolPath.CIRCLE,
         scale: (zoom * zoom) / 3,
-        fillColor: "#" + markerArray[i][1],
+        fillColor: city.city_color,
         fillOpacity: 1,
         strokeWeight: 0.6
       });

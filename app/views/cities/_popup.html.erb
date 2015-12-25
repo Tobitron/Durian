@@ -4,7 +4,7 @@
       <h1 id="cityName" class="cityName col-sm-10">
         <%= @clicked_city.name %>
       </h1>
-      <div class="cityCircle col-sm-2" style="background-color: #<%= @clicked_city.color_gradient %>">
+      <div class="cityCircle col-sm-2" style="background-color: <%= @clicked_city.color_gradient(@clicked_city.city_review_average) %>">
           <% unless @clicked_city.city_review_average.nil? %>
             <div class="cityScoreText"><%= number_to_percentage(@clicked_city.city_review_average * 10, precision: 0) %></div>
           <% end %>

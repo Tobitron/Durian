@@ -2,7 +2,7 @@ class CitySerializer < ActiveModel::Serializer
   attributes :id, :name, :latitude, :longitude, :city_color, :cleaned_city_review_average, :city_reviews
 
   def city_color
-    object.color_gradient
+    object.color_gradient(object.city_review_average) if object.city_review_average != nil 
   end
 
   def cleaned_city_review_average
@@ -15,5 +15,4 @@ class CitySerializer < ActiveModel::Serializer
   def city_reviews
     object.reviews
   end
-
 end

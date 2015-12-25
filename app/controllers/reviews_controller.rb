@@ -21,7 +21,7 @@ class ReviewsController < ApplicationController
       city.save # TODO This should be in the model
       redirect_to new_review_path
     else
-      flash[:warning] = "Please fill in all fields"
+      flash[:warning] = @review.errors.full_messages[0]
       redirect_to new_review_path
     end
   end

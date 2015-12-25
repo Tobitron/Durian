@@ -1,21 +1,5 @@
 require 'rails_helper'
 
-def sign_in_as(user)
-  visit root_path
-  click_on 'Sign In'
-
-  fill_in 'Email', with: user.email
-  fill_in 'Password', with: user.password
-
-  click_on 'Log in'
-end
-
-def sign_out_as(_user)
-  visit root_path
-  click_on 'Sign Out'
-end
-
-
 feature 'Feature: user creates review.' do
   context 'As an authenticated user' do
 
@@ -58,6 +42,5 @@ feature 'Feature: user creates review.' do
     scenario 'fail to create a duplicate review' do
       skip "Users shouldn't be able to create multiple reviews for one city, they currently can"
     end
-
   end
 end
