@@ -1,5 +1,5 @@
 $("#addCityButton").click(function(){
-  newCity = $(".addCity").val()
+  var newCity = $(".addCity").val();
   var geocoder = new google.maps.Geocoder();
   geocoder.geocode({address: newCity}, function(results, status) {
     $.ajax({
@@ -8,10 +8,12 @@ $("#addCityButton").click(function(){
        data: { name: newCity, latitude: results[0].geometry.location.lat(), longitude: results[0].geometry.location.lng() },
        dataType: 'html',
        error: function(response) {
-         console.log("error")
+         console.log("error");
        }
     });
   });
+
+  alert("New city added! Please refersh this page and select from the city dropdown. (Kinda ghetto that you need to refresh, sorry, I'll fix that later)")
 });
 
 $.get("/cities.json", function(data) {
@@ -42,6 +44,7 @@ $.get("/cities.json", function(data) {
         position: new google.maps.LatLng(city.latitude, city.longitude),
         opacity: 0.6,
         map: map,
+        title: city.name,
         icon: {
             path: google.maps.SymbolPath.CIRCLE,
             scale: 13,
@@ -101,6 +104,7 @@ $.get("/cities.json", function(data) {
       markerArray[i][0].setIcon({
         path: google.maps.SymbolPath.CIRCLE,
         scale: (zoom * zoom) / 3,
+        title: city.title,
         fillColor: city.city_color,
         fillOpacity: 1,
         strokeWeight: 0.6
