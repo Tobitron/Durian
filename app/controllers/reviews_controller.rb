@@ -14,9 +14,9 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.user_id = current_user.id
     city = City.find_by(id: params[:review][:city_id])
+    @review.review_average = @review.calc_review_average
     if @review.save
       flash[:success] = "Review created! Write another one?"
-      @review.review_average = @review.calc_review_average
       city.city_review_average = city.calc_city_review_average
       city.save # TODO This should be in the model
       redirect_to new_review_path

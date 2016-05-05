@@ -1,21 +1,3 @@
-$("#addCityButton").click(function(){
-  var newCity = $(".addCity").val();
-  var geocoder = new google.maps.Geocoder();
-  geocoder.geocode({address: newCity}, function(results, status) {
-    $.ajax({
-       method: 'POST',
-       url: '/cities',
-       data: { name: newCity, latitude: results[0].geometry.location.lat(), longitude: results[0].geometry.location.lng() },
-       dataType: 'html',
-       error: function(response) {
-         console.log("error");
-       }
-    });
-  });
-
-  alert("New city added! Please refersh this page and select from the city dropdown. (Kinda ghetto that you need to refresh, sorry, I'll fix that later)")
-});
-
 $.get("/cities.json", function(data) {
 
   cityData = data["cities"];
@@ -53,7 +35,7 @@ $.get("/cities.json", function(data) {
             strokeWeight: 0.6
         }
       });
-    // Create an array with marker info so I can set icon scale later
+    // Populate an array with marker info so I can set icon scale later
     markerArray.push([marker, city.city_color, city.name]);
 
     // My change to MarkerWithLabel broken this code, reverted back to standard Gmaps marker
@@ -82,9 +64,8 @@ $.get("/cities.json", function(data) {
 
   markerArray.forEach(function(marker) {
     google.maps.event.addListener(marker[0], 'mouseover', function(event){
-
       var infowindow = new google.maps.InfoWindow({
-        content: '<strong>' + marker[2] + '</strong>'
+        content: marker[2]
       });
 
       infowindow.open(map, marker[0]);
@@ -103,9 +84,9 @@ $.get("/cities.json", function(data) {
     for (i = 0; i < markerArray.length; i++) {
       markerArray[i][0].setIcon({
         path: google.maps.SymbolPath.CIRCLE,
-        scale: (zoom * zoom) / 3,
-        title: city.title,
-        fillColor: city.city_color,
+        scale: (zoom * zoom) / 2,
+        title: markerArray[i][2],
+        fillColor: markerArray[i][1],
         fillOpacity: 1,
         strokeWeight: 0.6
       });

@@ -15,7 +15,7 @@ class CitiesController < ApplicationController
       flash[:success] = "City created! Please refresh."
       redirect_to new_review_path
     else
-      flash[:notice] = "Your city couldn't be created"
+      flash[:notice] = "Your city couldn't be created."
       redirect_to new_review_path
     end
   end
