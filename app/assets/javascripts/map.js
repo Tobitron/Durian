@@ -42,6 +42,7 @@ $.get("/cities.json", function(data) {
     google.maps.event.addListener(marker,'click', function(event) {
       var latitude = event.latLng.lat();
       var longitude = event.latLng.lng();
+      var this_marker = marker;
 
       $.ajax({
          method: 'POST',
@@ -53,8 +54,13 @@ $.get("/cities.json", function(data) {
           $("#popup").empty();
           $("#popup").append(data);
 
+          $("#popup").removeClass('animate-right');
+          $("#popup").addClass('animate-left');
+
           map.addListener('click', function() {
-              popup.style.display = "none"
+              $("#popup").removeClass('animate-left');
+              $("#popup").addClass('animate-right');
+              setTimeout(function(){ popup.style.display = "none" }, 300);
            });
          },
          error: function(response) {

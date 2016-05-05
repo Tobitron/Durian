@@ -4,9 +4,10 @@
   position: absolute;
   overflow: scroll;
   z-index: 300;
-  right: 0;
+  right: -42%;
   width: 40%;
   height: 100%;
+  transition: right .5s;
 
   -webkit-box-shadow: -6px 5px 35px 0px rgba(133,133,133,0.53);
   -moz-box-shadow: -6px 5px 35px 0px rgba(133,133,133,0.53);
@@ -56,4 +57,37 @@
 .seeBiasButton {
   padding-top: 2em;
   padding-bottom: 2em;
+}
+
+.animate-left {
+	-webkit-animation-name: slideLeft;
+	-webkit-animation-duration: .3s;
+	-webkit-animation-timing-function: ease-out;
+	-webkit-animation-fill-mode:forwards;
+}
+
+.animate-right {
+	-webkit-animation-name: slideRight;
+	-webkit-animation-duration: .3s;
+	-webkit-animation-timing-function: ease-out;
+	-webkit-animation-fill-mode:forwards;
+}
+
+
+@-webkit-keyframes slideLeft {
+	0% {
+    	-webkit-transform: translateX(0%);
+	}
+	100%{
+		-webkit-transform: translateX(-100%);
+	}
+}
+
+@-webkit-keyframes slideRight {
+	0% {
+    	-webkit-transform: translateX(-100%);
+	}
+	100%{
+		-webkit-transform: translateX(0%);
+	}
 }
