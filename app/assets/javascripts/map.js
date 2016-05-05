@@ -52,7 +52,10 @@ $.get("/cities.json", function(data) {
           popup.style.display = 'block';
           $("#popup").empty();
           $("#popup").append(data);
-          $("#darkness").addClass("darkness");
+
+          map.addListener('click', function() {
+              popup.style.display = "none"
+           });
          },
          error: function(response) {
            console.log("error")
@@ -92,7 +95,12 @@ $.get("/cities.json", function(data) {
       });
     };
   });
+
 });
+
+// Hide info pane if user clicks on map
+
+
 
 
 // Variable used for gmaps style

@@ -1,0 +1,59 @@
+#popup{
+  background-color: white;
+  display: none;
+  position: absolute;
+  overflow: scroll;
+  z-index: 300;
+  right: 0;
+  width: 40%;
+  height: 100%;
+
+  -webkit-box-shadow: -6px 5px 35px 0px rgba(133,133,133,0.53);
+  -moz-box-shadow: -6px 5px 35px 0px rgba(133,133,133,0.53);
+  box-shadow: -6px 5px 35px 0px rgba(133,133,133,0.53);
+}
+
+#reviewContent {
+  height: 100%;
+  padding: 3em;
+}
+
+.cityNameAndScoreRow{
+  padding-bottom: 2em;
+}
+
+.cityName {
+  text-transform: uppercase;
+  padding-left: 0px;
+  padding-bottom: 1em;
+  font-size: 2.5em;
+  font-weight: 500;
+
+}
+
+.cityCircle {
+  position: absolute;
+  top: 7em;
+  right: .7em;
+  border-radius: 50%;
+  height: 5em;
+  width: 5em;
+
+  -webkit-box-shadow: 2px -3px 20px -2px rgba(92,92,92,0.54);
+  -moz-box-shadow: 2px -3px 20px -2px rgba(92,92,92,0.54);
+  box-shadow: 2px -3px 20px -2px rgba(92,92,92,0.54);
+}
+
+.cityScoreText {
+    color: white;
+  /* TODO center this element automatically */
+    padding-top: .45em;
+    margin-left: -.2em;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.seeBiasButton {
+  padding-top: 2em;
+  padding-bottom: 2em;
+}

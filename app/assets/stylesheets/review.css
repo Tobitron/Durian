@@ -1,7 +1,7 @@
-#reviewContent {
+/*#reviewContent {
   border: 1px solid;
   background-color: white;
-  height: 35em;
+  height: 100%;
   overflow: scroll;
 }
 
@@ -10,7 +10,7 @@
 }
 
 .cityName {
-  /* counteract Bootstraps default padding figure out a global solution to this */
+   counteract Bootstraps default padding figure out a global solution to this
   padding-left: 0;
 }
 
@@ -23,7 +23,7 @@
 .cityScoreText {
     color: white;
   /* TODO center this element automatically */
-    padding-top: .45em;
+    /*padding-top: .45em;
     margin-left: -.2em;
     font-size: 2em;
     font-weight: bold;
@@ -32,4 +32,4 @@
 .seeBiasButton {
   padding-top: 2em;
   padding-bottom: 2em;
-}
+}*/
