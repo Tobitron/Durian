@@ -42,8 +42,7 @@ $.get("/cities.json", function(data) {
     google.maps.event.addListener(marker,'click', function(event) {
       var latitude = event.latLng.lat();
       var longitude = event.latLng.lng();
-      var this_marker = marker;
-
+      
       $.ajax({
          method: 'POST',
          url: '/cities/popup',

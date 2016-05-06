@@ -3,11 +3,10 @@
   display: none;
   position: absolute;
   overflow: scroll;
-  z-index: 300;
-  right: -42%;
+  z-index: 5;
+  right: -40%;
   width: 40%;
   height: 100%;
-  transition: right .5s;
 
   -webkit-box-shadow: -6px 5px 35px 0px rgba(133,133,133,0.53);
   -moz-box-shadow: -6px 5px 35px 0px rgba(133,133,133,0.53);
@@ -20,13 +19,14 @@
 }
 
 .cityNameAndScoreRow{
-  padding-bottom: 2em;
+  padding-bottom: 3em;
 }
 
 .cityName {
   text-transform: uppercase;
   padding-left: 0px;
-  padding-bottom: 1em;
+  padding-top: 1em;
+  padding-bottom: .5em;
   font-size: 2.5em;
   font-weight: 500;
 
@@ -34,7 +34,7 @@
 
 .cityCircle {
   position: absolute;
-  top: 7em;
+  top: 8.3em;
   right: .7em;
   border-radius: 50%;
   height: 5em;
