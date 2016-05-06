@@ -6,10 +6,11 @@ $.get("/cities.json", function(data) {
     center: {lat: 10.209, lng: 108},
     zoom: 5,
     styles: style_array,
+    mapTypeControl: false,
     zoomControl: true,
     zoomControlOptions: {
-       position: google.maps.ControlPosition.RIGHT_TOP
-   },
+       position: google.maps.ControlPosition.LEFT_CENTER
+    },
   });
 
   // Remove cities that don't have any reviews from array, don't want them on the map with no reviews!
@@ -42,19 +43,26 @@ $.get("/cities.json", function(data) {
     google.maps.event.addListener(marker,'click', function(event) {
       var latitude = event.latLng.lat();
       var longitude = event.latLng.lng();
-      
+
       $.ajax({
          method: 'POST',
          url: '/cities/popup',
          data: { latitude: latitude, longitude: longitude },
          dataType: 'html',
          success: function(data){
-          popup.style.display = 'block';
+          popup.style.display = 'flex';
           $("#popup").empty();
           $("#popup").append(data);
 
           $("#popup").removeClass('animate-right');
           $("#popup").addClass('animate-left');
+
+          // Make closing the popup a function so this shit be DRY
+          $('.x').click(function() {
+              $("#popup").removeClass('animate-left');
+              $("#popup").addClass('animate-right');
+              setTimeout(function(){ popup.style.display = "none" }, 300);
+           });
 
           map.addListener('click', function() {
               $("#popup").removeClass('animate-left');

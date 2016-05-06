@@ -3,7 +3,7 @@ class City < ActiveRecord::Base
 
   # geocoded_by :name
   # after_validation :geocode
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true
 
   def calc_city_review_average
     review_aggregate = 0

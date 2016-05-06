@@ -15,7 +15,24 @@
 
 #reviewContent {
   height: 100%;
-  padding: 3em;
+  padding: 2em;
+  width: 95%;
+  margin: auto;
+}
+
+.x {
+    float: right;
+    padding-top: 1rem;
+    font-size: 1.5em;
+    font-weight: 200;
+}
+
+a .x{
+    color: black;
+}
+
+a:hover .x{
+    color: hotpink;
 }
 
 .cityNameAndScoreRow{
@@ -61,7 +78,7 @@
 
 .animate-left {
 	-webkit-animation-name: slideLeft;
-	-webkit-animation-duration: .3s;
+	-webkit-animation-duration: .2s;
 	-webkit-animation-timing-function: ease-out;
 	-webkit-animation-fill-mode:forwards;
 }
