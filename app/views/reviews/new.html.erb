@@ -1,25 +1,24 @@
-<div class="addCityContainer">
-  <input type="text" name="city[name]" class="addCity" id="city_name" >
-  <button id="addCityButton">Add City</button>
-</div>
-
 <%= form_for @review do |f| %>
   <div class="row">
     <div class="small-1 columns">
       <%= f.label :city %>
     </div>
-    <div class="small-3 columns">
 
+    <div class="small-3 columns end">
       <%= f.select :city_id, options_for_select(@cities_array) %>
     </div>
-    <div class="small-5 columns">
-      Don't see a city you want to review? Add it -->
-      <br>
-      Then refresh the page.
-    </div>
-    <div class="small-3 columns">
-    </div>
   </div>
+
+  <div class="row add-city-row">
+      <div class="small-4 small-offset-1 columns">
+          <span class="add-city">Don't see a your city? Add it.</span>
+          <input type="text" name="city[name]" class="addCity" id="city_name">
+      </div>
+      <div class="small-3 column end">
+        <button id="addCityButton">Add City</button>
+      </div>
+  </div>
+
   <div class="row">
     <div class="small-1 columns">
       <%= f.label :description %>
@@ -31,10 +30,10 @@
 
   <div class="row">
     <div class="small-1 columns">
-      <%= f.label :value %>
+      <%= f.label :value%>
     </div>
     <div class="small-1 columns">
-      <%= f.text_field :value %>
+      <%= f.text_field :value, placeholder: "0-10"  %>
     </div>
     <div class="small-10 columns end">
       Overall value for money. A good way to gauge this is: how much does a beer cost? How much for a meal? Is it more than you thought it should be? Less? A city with the best value is 10, worst is 0.
@@ -46,7 +45,7 @@
       <%= f.label :beauty %>
     </div>
     <div class="small-1 columns ">
-      <%= f.text_field :beauty %>
+      <%= f.text_field :beauty, placeholder: "0-10" %>
     </div>
     <div class="small-10 columns end">
       The beauty of a city. Could be natural or architecture etc. Up to you.
@@ -58,7 +57,7 @@
       <%= f.label :activities %>
     </div>
     <div class="small-1 columns ">
-      <%= f.text_field :activities %>
+      <%= f.text_field :activities, placeholder: "0-10" %>
     </div>
     <div class="small-10 columns end">
       Could be site seeing, adventure sports, museums. Anything you can *do* in a place. This one's important.
@@ -70,7 +69,7 @@
       <%= f.label :friendliness %>
     </div>
     <div class="small-1 columns">
-      <%= f.text_field :friendliness %>
+      <%= f.text_field :friendliness, placeholder: "0-10" %>
     </div>
     <div class="small-10 columns end">
       How friendly you percieved the locals to be.
@@ -82,7 +81,7 @@
       <%= f.label :food %>
     </div>
     <div class="small-1 columns">
-      <%= f.text_field :food %>
+      <%= f.text_field :food, placeholder: "0-10" %>
     </div>
     <div class="small-10 columns end">
       Pretty self-explanatory.
@@ -94,7 +93,7 @@
       <%= f.label :touristy %>
     </div>
     <div class="small-1 columns end">
-      <%= f.text_field :touristy %>
+      <%= f.text_field :touristy, placeholder: "0-10" %>
     </div>
     <div class="small-10 columns end">
       Did it feel like a tourist trap? A remote village in Laos would be 0, Cancun, Mexico would be 10.

@@ -51,7 +51,7 @@ a:hover .x{
 
 .cityCircle {
   position: absolute;
-  top: 8.3em;
+  top: 7.5em;
   right: .7em;
   border-radius: 50%;
   height: 5em;
@@ -88,6 +88,23 @@ a:hover .x{
 	-webkit-animation-duration: .3s;
 	-webkit-animation-timing-function: ease-out;
 	-webkit-animation-fill-mode:forwards;
+}
+
+
+@media only screen and (max-width: 800px) {
+
+  #popup {
+    top: 50%;
+    right: -100%;
+    width: 100%;
+    height: 50%;
+  }
+
+  #reviewContent {
+    padding: 1em;
+    padding-top: 0px;
+  }
+
 }
 
 

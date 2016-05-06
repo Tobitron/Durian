@@ -16,7 +16,7 @@
       <% @clicked_city.reviews.each do |review| %>
         <% reviewer = User.find(review.user_id) %>
         <% reviewer_ids << reviewer.id %>
-        <h3> <%= reviewer.first_name %>'s Take</h3>
+        <h3> <%= reviewer.first_name.capitalize %>'s Take</h3>
           <%= review.description %>
         <div class="row seeBiasButton">
           <div class="medium-6 medium-centered column"><button id="<%= reviewer.id %>">See <%= reviewer.first_name %>'s Bias</button></div>

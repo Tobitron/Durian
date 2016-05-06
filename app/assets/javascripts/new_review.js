@@ -1,3 +1,9 @@
+$(".add-city").click(function(){
+    $(".add-city").css("display", "none");
+    $(".addCity").css("display", "block");
+    $("#addCityButton").css("display", "block");
+});
+
 $("#addCityButton").click(function(){
   var newCity = $(".addCity").val();
   var geocoder = new google.maps.Geocoder();

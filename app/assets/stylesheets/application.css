@@ -76,8 +76,10 @@
   margin: 0 auto
 }
 
-.addCityContainer {
-  float: right;
-  margin-right: 15%;
-  padding-top: 4em;
+#city_name {
+  display: none;
+}
+
+#addCityButton {
+  display: none;
 }
