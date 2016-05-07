@@ -40,7 +40,7 @@ $.get("/cities.json", function(data) {
     markerArray.push([marker, city.city_color, city.name]);
 
     // My change to MarkerWithLabel broken this code, reverted back to standard Gmaps marker
-    google.maps.event.addListener(marker,'mousedown', function(event) {
+    google.maps.event.addListener(marker,'click', function(event) {
       var latitude = event.latLng.lat();
       var longitude = event.latLng.lng();
 
@@ -64,7 +64,7 @@ $.get("/cities.json", function(data) {
               setTimeout(function(){ popup.style.display = "none" }, 300);
            });
 
-          map.addListener('mousedown', function() {
+          map.addListener('click', function() {
               $("#popup").removeClass('animate-left');
               $("#popup").addClass('animate-right');
               setTimeout(function(){ popup.style.display = "none" }, 300);
@@ -100,7 +100,7 @@ $.get("/cities.json", function(data) {
     for (i = 0; i < markerArray.length; i++) {
       markerArray[i][0].setIcon({
         path: google.maps.SymbolPath.CIRCLE,
-        scale: (zoom * zoom) / 2,
+        scale: (zoom * zoom) / 3,
         title: markerArray[i][2],
         fillColor: markerArray[i][1],
         fillOpacity: 1,

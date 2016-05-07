@@ -54,6 +54,18 @@
   margin-bottom: 1em;
 }
 
+::-webkit-input-placeholder {
+  color: $steel;
+  opacity: .5;
+}
+
+.flex {
+  display: flex;
+}
+
+.margin-auto {
+  margin: auto;
+}
 
 .flash {
   background-color: lime;

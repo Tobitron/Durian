@@ -6,15 +6,15 @@
       </div>
     </div>
     <div class="row cityNameAndScoreRow">
-      <h1 id="cityName" class="cityName col-sm-10">
+      <div id="cityName" class="cityName medium-10 column">
         <%= @clicked_city.name %>
-      </h1>
-      <img src="http://assets.fodors.com/destinations/21/grand-palace-night-bangkok-thailand_main.jpg"></img>
-      <div class="cityCircle col-sm-2" style="background-color: <%= @clicked_city.color_gradient(@clicked_city.city_review_average) %>">
+      </div>
+      <div class="cityCircle medium-2 column" style="background-color: <%= @clicked_city.color_gradient(@clicked_city.city_review_average) %>">
           <% unless @clicked_city.city_review_average.nil? %>
             <div class="cityScoreText"><%= number_to_percentage(@clicked_city.city_review_average * 10, precision: 0) %></div>
           <% end %>
       </div>
+      <div><img src="http://assets.fodors.com/destinations/21/grand-palace-night-bangkok-thailand_main.jpg"></img></div>
     </div>
       <% reviewer_ids = [] %>
       <% @clicked_city.reviews.each do |review| %>
@@ -23,7 +23,7 @@
         <h3> <%= reviewer.first_name.capitalize %>'s Take</h3>
           <%= review.description %>
         <div class="row seeBiasButton">
-          <div class="medium-6 medium-centered column"><button id="<%= reviewer.id %>">See <%= reviewer.first_name %>'s Bias</button></div>
+          <div class="medium-6 medium-centered column flex"><button class="margin-auto" id="<%= reviewer.id %>">See <%= reviewer.first_name.capitalize %>'s Bias</button></div>
           <!-- One could argue my JS should be separate from the view, but I think it's helpful to have it here in plain site and Ruby makes things easier. -->
           <script>
             <% reviewer_ids.each do |id| %>

@@ -42,16 +42,15 @@ a:hover #x{
 .cityName {
   text-transform: uppercase;
   padding-left: 0px;
-  padding-top: 1em;
-  padding-bottom: .5em;
-  font-size: 2.5em;
+  padding-top: 1rem;
+  padding-bottom: 2.5rem;
+  font-size: 2.2em;
   font-weight: 500;
-
 }
 
 .cityCircle {
   position: absolute;
-  top: 7.5em;
+  top: 6em;
   right: .7em;
   border-radius: 50%;
   height: 5em;
@@ -91,7 +90,7 @@ a:hover #x{
 }
 
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 950px) {
 
   #popup {
     right: -100%;
@@ -99,6 +98,9 @@ a:hover #x{
     height: 100%;
   }
 
+  .cityName {
+    font-size: 2em;
+  }
 }
 
 

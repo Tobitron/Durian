@@ -11,7 +11,7 @@
 
   <div class="row add-city-row">
       <div class="small-4 small-offset-1 columns">
-          <span class="add-city">Don't see a your city? Add it.</span>
+          <span class="add-city">Don't see a your city? Add City</span>
           <input type="text" name="city[name]" class="addCity" id="city_name">
       </div>
       <div class="small-3 column end">
@@ -24,7 +24,7 @@
       <%= f.label :description %>
     </div>
     <div class="small-6 columns end">
-      <%= f.text_area :description, rows: 7, :maxlength => 1500 %>
+      <%= f.text_area :description, rows: 7, :maxlength => 1500, placeholder: "What did you like about this city? What didn't you like? How long would you recommend staying for?" %>
     </div>
   </div>
 
