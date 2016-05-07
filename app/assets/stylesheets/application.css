@@ -55,7 +55,7 @@
 }
 
 ::-webkit-input-placeholder {
-  color: $steel;
+  color: gray;
   opacity: .5;
 }
 
