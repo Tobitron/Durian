@@ -20,18 +20,18 @@
   margin: auto;
 }
 
-.x {
+#x {
     float: right;
     padding-top: 1rem;
     font-size: 1.5em;
     font-weight: 200;
 }
 
-a .x{
+a #x{
     color: black;
 }
 
-a:hover .x{
+a:hover #x{
     color: hotpink;
 }
 
@@ -94,15 +94,9 @@ a:hover .x{
 @media only screen and (max-width: 800px) {
 
   #popup {
-    top: 50%;
     right: -100%;
     width: 100%;
-    height: 50%;
-  }
-
-  #reviewContent {
-    padding: 1em;
-    padding-top: 0px;
+    height: 100%;
   }
 
 }
