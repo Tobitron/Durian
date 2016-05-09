@@ -21,7 +21,7 @@
         <% reviewer = User.find(review.user_id) %>
         <% reviewer_ids << reviewer.id %>
         <h3> <%= reviewer.first_name.capitalize %>'s Take</h3>
-          <%= review.description %>
+          <%= simple_format(review.description) %>
         <div class="row seeBiasButton">
           <div class="medium-6 medium-centered column flex"><button class="margin-auto" id="<%= reviewer.id %>">See <%= reviewer.first_name.capitalize %>'s Bias</button></div>
           <!-- One could argue my JS should be separate from the view, but I think it's helpful to have it here in plain site and Ruby makes things easier. -->

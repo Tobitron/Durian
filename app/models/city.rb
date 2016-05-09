@@ -24,10 +24,10 @@ class City < ActiveRecord::Base
 
   # This algorithim isn't working well from a UX standpoint, going to replace manually until I can tweak the math
   def color_gradient(city_review_average)
-    red = 255
-    green = 0
-    stepSize = 5
-    array = []
+    # red = 255
+    # green = 0
+    # stepSize = 5
+    # array = []
     #
     # while green < 255
     #   green += stepSize;
