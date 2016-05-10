@@ -20,11 +20,14 @@
       <% @clicked_city.reviews.each do |review| %>
         <% reviewer = User.find(review.user_id) %>
         <% reviewer_ids << reviewer.id %>
-        <h3> <%= reviewer.first_name.capitalize %>'s Take</h3>
-          <%= simple_format(review.description) %>
+        <div class="bias<%= reviewer.id %>">
+          <h3> <%= reviewer.first_name.capitalize %>'s Take</h3>
+            <%= simple_format(review.description) %>
+        </div>
         <div class="row seeBiasButton">
           <div class="medium-6 medium-centered column flex"><button class="margin-auto" id="<%= reviewer.id %>">See <%= reviewer.first_name.capitalize %>'s Bias</button></div>
           <!-- One could argue my JS should be separate from the view, but I think it's helpful to have it here in plain site and Ruby makes things easier. -->
+
           <script>
             <% reviewer_ids.each do |id| %>
               $('#' + <%= id %> ).click(function() {
@@ -34,7 +37,7 @@
                    dataType: 'html',
                    success: function(data){
                     $("#biasCard").remove();
-                    $("#reviewContent").append(data);
+                    $(".bias" + <%= id %>).append(data);
                    },
                    error: function(response) {
                      console.log("error")
