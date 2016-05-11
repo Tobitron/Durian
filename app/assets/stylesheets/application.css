@@ -59,9 +59,9 @@
   opacity: .5;
 }
 
-.flex {
+/*.flex {
   display: flex;
-}
+}*/
 
 .margin-auto {
   margin: auto;
@@ -89,9 +89,5 @@
 }
 
 #city_name {
-  display: none;
-}
-
-#addCityButton {
   display: none;
 }

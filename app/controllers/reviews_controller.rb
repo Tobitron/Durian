@@ -8,6 +8,7 @@ class ReviewsController < ApplicationController
   def new
     @review = Review.new
     @cities_array = City.cities_alphabetized
+    @latest_city_id = City.last.id
   end
 
   def create

@@ -25,7 +25,7 @@
             <%= simple_format(review.description) %>
         </div>
         <div class="row seeBiasButton">
-          <div class="medium-6 medium-centered column flex"><button class="margin-auto" id="<%= reviewer.id %>">See <%= reviewer.first_name.capitalize %>'s Bias</button></div>
+          <div class="medium-6 medium-centered column"><button class="margin-auto" id="<%= reviewer.id %>">See <%= reviewer.first_name.capitalize %>'s Bias</button></div>
           <!-- One could argue my JS should be separate from the view, but I think it's helpful to have it here in plain site and Ruby makes things easier. -->
 
           <script>

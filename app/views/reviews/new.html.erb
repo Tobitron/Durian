@@ -11,13 +11,33 @@
 
   <div class="row add-city-row">
       <div class="small-4 small-offset-1 columns">
-          <span class="add-city">Don't see a your city? Add City</span>
+          <span class="dont-see-city">Don't see a your city? <span class="add-city">Add City</span></span>
           <input type="text" name="city[name]" class="addCity" id="city_name" placeholder="City name only">
       </div>
       <div class="small-3 column end">
-        <button id="addCityButton">Add City</button>
+        <div class="button" id="addCityButton">Add City </div>
       </div>
   </div>
+
+  <script>
+    $("#addCityButton").click(function(){
+      var newCity = $(".addCity").val();
+      var geocoder = new google.maps.Geocoder();
+      geocoder.geocode({address: newCity}, function(results, status) {
+        $.ajax({
+           method: 'POST',
+           url: '/cities',
+           data: { name: newCity, latitude: results[0].geometry.location.lat(), longitude: results[0].geometry.location.lng() },
+           dataType: 'html',
+           error: function(response) {
+             console.log("error");
+           }
+        });
+      });
+
+      $("#review_city_id").prepend("<option selected value=" + <%= @latest_city_id + 1 %> + ">" + newCity + "</option>")
+    });
+  </script>
 
   <div class="row">
     <div class="small-1 columns">

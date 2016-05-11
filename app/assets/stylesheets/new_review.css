@@ -1,0 +1,12 @@
+.dont-see-city {
+  font-size: .8em;
+}
+
+.add-city {
+  font-weight: bold;
+  color: purple;
+}
+
+#addCityButton {
+  display: none;
+}
