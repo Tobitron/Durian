@@ -4,9 +4,17 @@
 
 .add-city {
   font-weight: bold;
-  color: purple;
+  color: #133AB9;
+}
+
+.closeBiasButton {
+  
 }
 
 #addCityButton {
   display: none;
+}
+
+.add-city-row {
+
 }
