@@ -25,7 +25,7 @@ $.get("/cities.json", function(data) {
   cityData.forEach(function(city) {
         marker = new google.maps.Marker({
         position: new google.maps.LatLng(city.latitude, city.longitude),
-        opacity: 0.6,
+        // opacity: 0.6,
         map: map,
         title: city.name,
         icon: {

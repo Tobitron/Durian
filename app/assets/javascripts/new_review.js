@@ -1,3 +1,4 @@
+// These class and id names need to improve asap
 $(".add-city").click(function(){
     $(".dont-see-city").css("display", "none");
     $(".addCity").css("display", "block");
