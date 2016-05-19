@@ -80,6 +80,16 @@ a:hover #x{
 	-webkit-animation-duration: .2s;
 	-webkit-animation-timing-function: ease-out;
 	-webkit-animation-fill-mode:forwards;
+
+  -moz-animation-name: slideLeft;
+	-moz-animation-duration: .2s;
+	-moz-animation-timing-function: ease-out;
+	-moz-animation-fill-mode:forwards;
+
+  -ms-animation-name: slideLeft;
+	-ms-animation-duration: .2s;
+	-ms-animation-timing-function: ease-out;
+	-ms-animation-fill-mode:forwards;
 }
 
 .animate-right {
@@ -87,6 +97,11 @@ a:hover #x{
 	-webkit-animation-duration: .3s;
 	-webkit-animation-timing-function: ease-out;
 	-webkit-animation-fill-mode:forwards;
+
+  -moz-animation-name: slideRight;
+  -moz-animation-duration: .3s;
+  -moz-animation-timing-function: ease-out;
+  -moz-animation-fill-mode:forwards;
 }
 
 
@@ -104,20 +119,28 @@ a:hover #x{
 }
 
 
-@-webkit-keyframes slideLeft {
+@keyframes slideLeft {
 	0% {
-    	-webkit-transform: translateX(0%);
+  	-webkit-transform: translateX(0%);
+    -moz-transform: translateX(0%);
+    -ms-transform: translateX(0%);
 	}
 	100%{
 		-webkit-transform: translateX(-100%);
+    -moz-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
 	}
 }
 
-@-webkit-keyframes slideRight {
+@keyframes slideRight {
 	0% {
-    	-webkit-transform: translateX(-100%);
+  	-webkit-transform: translateX(-100%);
+    -moz-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
 	}
 	100%{
 		-webkit-transform: translateX(0%);
+    -moz-transform: translateX(0%);
+    -ms-transform: translateX(0%);
 	}
 }
