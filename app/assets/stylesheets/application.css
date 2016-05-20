@@ -59,16 +59,17 @@
   opacity: .5;
 }
 
-/*.flex {
-  display: flex;
-}*/
 
 .margin-auto {
   margin: auto;
 }
 
-.flash {
-  background-color: lime;
+.success {
+  background-color: #43AC6A;
+}
+
+.warning {
+  background-color: #f08a24;
 }
 
 .formContainer {

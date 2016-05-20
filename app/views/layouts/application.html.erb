@@ -8,9 +8,17 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 </head>
   <body>
-    <% flash.each do |key, value| -%>
+    <% flash.each do |key, value| %>
     <div class="flash flash <%= key %>">
-        <%= value %>
+        <% if (value.kind_of?(Array)) %>
+          <% value.each do |message| %>
+            <ul>
+              <li><%= message %></li>
+            </ul>
+          <% end %>
+        <% else %>
+          <%= value %>
+        <% end %>
     </div>
     <%- end -%>
 

@@ -6,9 +6,11 @@ class Review < ActiveRecord::Base
 
   validates_uniqueness_of :user_id, scope: [:city_id], message: "You have already reviewed this city."
 
+  validates :city_id, presence: { message: "must be selected." }
+
   validates :description, presence: true
 
-  validates :value, presence: { message: generic_validation_message },
+  validates :value, presence: { message: "can't be blank, the people need to know if they can get $.50 beers!" },
            numericality: { only_integer: true, greater_than: -1, less_than: 10.01 }
 
   validates :beauty, presence: { message: generic_validation_message },
