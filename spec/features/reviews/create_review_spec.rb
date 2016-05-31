@@ -1,9 +1,11 @@
 require 'rails_helper'
 
+
 feature 'Feature: user creates review.' do
   context 'As an authenticated user' do
 
     let(:user) { FactoryGirl.create(:user) }
+    let(:city) { FactoryGirl.create(:city) }
 
     before :each do
       sign_in_as user
@@ -21,6 +23,7 @@ feature 'Feature: user creates review.' do
       fill_in 'Touristy', with: 8
       click_button 'Create Review'
 
+
       expect(page).to have_content('Review created! Write another one?')
     end
 
@@ -34,7 +37,6 @@ feature 'Feature: user creates review.' do
       fill_in 'Friendliness', with: 8
       fill_in 'Food', with: 8
       # in case it's opaque: I'm leaving out the 'Touristy' field
-
       click_button 'Create Review'
       expect(page).to have_content("Please fill in all fields")
     end

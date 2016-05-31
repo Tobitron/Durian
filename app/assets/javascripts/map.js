@@ -50,10 +50,9 @@ $.get("/cities.json", function(data) {
          data: { latitude: latitude, longitude: longitude },
          dataType: 'html',
          success: function(data){
-          popup.style.display = 'flex';
+          $("#popup").css("display", "block");
           $("#popup").empty();
           $("#popup").append(data);
-
           $("#popup").removeClass('animate-right');
           $("#popup").addClass('animate-left');
 
