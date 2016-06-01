@@ -54,7 +54,8 @@ $.get("/cities.json", function(data) {
           $("#popup").empty();
           $("#popup").append(data);
           $("#popup").removeClass('animate-right');
-          $("#popup").addClass('animate-left');
+          // $("#popup").css("transform", "translateX(-100%)");
+          $("#popup").addClass('transform');
 
           // Make closing the popup a function so this shit be DRY
           $('#x').click(function() {
