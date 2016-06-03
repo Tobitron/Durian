@@ -50,22 +50,23 @@ $.get("/cities.json", function(data) {
          data: { latitude: latitude, longitude: longitude },
          dataType: 'html',
          success: function(data){
-          $("#popup").css("display", "block");
           $("#popup").empty();
           $("#popup").append(data);
           $("#popup").removeClass('animate-right');
           // $("#popup").css("transform", "translateX(-100%)");
+          $("#popup").css("display", "block");
           $("#popup").addClass('transform');
 
           // Make closing the popup a function so this shit be DRY
           $('#x').click(function() {
-              $("#popup").removeClass('animate-left');
+              $("#popup").removeClass('transform');
+              $("#popup").css("opacity", "0");
               $("#popup").addClass('animate-right');
               setTimeout(function(){ popup.style.display = "none" }, 300);
            });
 
           map.addListener('click', function() {
-              $("#popup").removeClass('animate-left');
+              $("#popup").removeClass('transform');
               $("#popup").addClass('animate-right');
               setTimeout(function(){ popup.style.display = "none" }, 300);
            });

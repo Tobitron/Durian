@@ -14,7 +14,7 @@
 }
 
 .transform {
-  -webkit-transition: all .5s ease 0s;
+  -webkit-transition: all .3s ease 0s;
   -webkit-transform: translateX(-100%);
 }
 
