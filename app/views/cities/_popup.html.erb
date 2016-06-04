@@ -14,7 +14,7 @@
         <% end %>
     </div>
   </div>
-    <div><img src="http://assets.fodors.com/destinations/21/grand-palace-night-bangkok-thailand_main.jpg"></img></div>
+    <div><img src=<%= @clicked_city.image %>></img></div>
     <% reviewer_ids = [] %>
     <% @clicked_city.reviews.each do |review| %>
       <% reviewer = User.find(review.user_id) %>
