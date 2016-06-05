@@ -1,16 +1,16 @@
 <div id="reviewContent" class="col-md-12 standardContainer">
   <div class="row">
-    <div class="medium 1 columns end">
+    <div class="medium 1 columns x end">
       <a><span id="x">x</span></a>
     </div>
   </div>
   <div class="row cityNameAndScoreRow">
-    <div id="cityName" class="cityName medium-8 column">
+    <div id="cityName" class="cityName small-8 columns">
       <%= @clicked_city.name %>
     </div>
-    <div class="cityCircle medium-2 column end" style="background-color: <%= @clicked_city.color_gradient(@clicked_city.city_review_average) %>">
+    <div class="cityCircle small-2 columns" style="background-color: <%= @clicked_city.color_gradient(@clicked_city.city_review_average) %>">
         <% unless @clicked_city.city_review_average.nil? %>
-          <div class="cityScoreText"><%= number_to_percentage(@clicked_city.city_review_average * 10, precision: 0) %></div>
+          <div class="cityScoreText"><%= number_to_percentage(@clicked_city.city_review_average * 10, precision: 0)%></div>
         <% end %>
     </div>
   </div>

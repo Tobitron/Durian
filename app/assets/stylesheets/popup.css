@@ -10,7 +10,6 @@
   -webkit-box-shadow: -6px 5px 35px 0px rgba(133,133,133,0.53);
   -moz-box-shadow: -6px 5px 35px 0px rgba(133,133,133,0.53);
   box-shadow: -6px 5px 35px 0px rgba(133,133,133,0.53);
-  /*transition: all 3s ease 0s;*/
 }
 
 .transform {
@@ -23,6 +22,10 @@
   padding: 2em;
   width: 95%;
   margin: auto;
+}
+
+.x {
+  margin-left: 2em;
 }
 
 #x {
@@ -41,22 +44,18 @@ a:hover #x{
 }
 
 .cityNameAndScoreRow{
-  margin: 2em;
+  margin-bottom: 2em;
 }
 
 .cityName {
   text-transform: uppercase;
   padding-left: 0px;
-  padding-top: 1rem;
-  /*padding-bottom: 2.5rem;*/
+  padding-top: .5em;
   font-size: 2.2em;
   font-weight: 500;
 }
 
 .cityCircle {
-/*  position: absolute;
-  top: 6em;
-  right: .7em;*/
   border-radius: 50%;
   height: 5em;
   width: 5em;
@@ -123,11 +122,25 @@ a:hover #x{
     height: 100%;
   }
 
-  .cityName {
-    font-size: 2em;
-  }
 }
 
+@media only screen and (max-width: 750px) {
+
+  .cityName {
+    font-size: 1.5em;
+  }
+
+  .cityCircle {
+    height: 4em;
+    width: 4em;
+  }
+
+  .cityScoreText {
+    font-size: 1.5em;
+    padding-top: .5em;
+    margin-left: -.3em;
+  }
+}
 
 
 
